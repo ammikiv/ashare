@@ -7,6 +7,7 @@
 | `index.html` | **最新一期**：内联契约 + 构建期预渲染 ⇒ **无 JS 也能读全** |
 | `report.html` | 与 `index.html` 内容相同，供直链引用 |
 | `history/` | 各期 **gzip 契约**（实测约 26 KB/期）+ `index.json` 索引 |
+| `candidates/` | **候选列表静态 JSON API**（供 THS-ext 等外部应用消费） |
 
 ## 多期浏览
 
@@ -26,9 +27,27 @@
 ```
 Astock/scan/output/report_{YYYYMMDD}.html  ->  index.html / report.html
 Astock/scan/output/history/*.json.gz       ->  history/          ->  git push
+Astock/scan/output/candidates/*            ->  candidates/       ->  git push
 ```
 
 `history/` **只增不删**（站点上删掉一期就再也回不来了）。
+
+## 候选列表 API（candidates/）
+
+**固定 URL 永远指向最新一期**，数据日写在 `index.json` 的 `asof`。每个列表都是**纯 JSON 数组**，
+成员为三元组 `{code, name, industry}`：
+
+| 列表 | URL | 口径 |
+|---|---|---|
+| 观察档候选 | `candidates/list/guancha.json` | `tier == "观察"` |
+| 临界候选 | `candidates/list/linjie.json` | 门槛下 10 分内 ∧ conf=high ∧ 未入档 |
+| 早期启动候选 | `candidates/list/zaoqi.json` | 熊市前 5% 分位 |
+| 刚突破候选 | `candidates/list/tupo.json` | 刚突破 + 突破候选 |
+| Spring候选 | `candidates/list/tanhuang.json` | `pot_tier == "潜伏候选"` |
+| 昇腾产业链 | `candidates/list/shengteng.json` | 22 只，industry = 产业链环节 |
+
+完整 URL 前缀：`https://ammikiv.github.io/ashare/candidates/`。
+列表为空时返回 `[]`（应用应按空列表处理，勿读成"接口出错"）。
 
 **本仓库文件由脚本生成，手工修改会在下一次发布时被覆盖。**
 
