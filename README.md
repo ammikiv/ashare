@@ -39,6 +39,7 @@ Astock/scan/output/candidates/*            ->  candidates/       ->  git push
 
 | 列表 | URL | 口径 |
 |---|---|---|
+| 强多头候选 | `candidates/list/qiangduotou.json` | `tier == "强多头"`（仅牛/震荡产出；熊市返回空） |
 | 观察档候选 | `candidates/list/guancha.json` | `tier == "观察"` |
 | 临界候选 | `candidates/list/linjie.json` | 门槛下 10 分内 ∧ conf=high ∧ 未入档 |
 | 早期启动候选 | `candidates/list/zaoqi.json` | 熊市前 5% 分位 |
