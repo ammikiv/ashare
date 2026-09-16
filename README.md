@@ -43,7 +43,7 @@ Astock/scan/output/candidates/*            ->  candidates/       ->  git push
 | 临界候选 | `candidates/list/linjie.json` | 门槛下 10 分内 ∧ conf=high ∧ 未入档 |
 | 早期启动候选 | `candidates/list/zaoqi.json` | 熊市前 5% 分位 |
 | 刚突破候选 | `candidates/list/tupo.json` | 刚突破 + 突破候选 |
-| Spring候选 | `candidates/list/tanhuang.json` | `pot_tier == "潜伏候选"` |
+| Spring候选 | `candidates/list/tanhuang.json` | 裸K校核通过 / 距失效位≥1% / 上限 20 |
 | 昇腾产业链 | `candidates/list/shengteng.json` | 22 只，industry = 产业链环节 |
 
 完整 URL 前缀：`https://ammikiv.github.io/ashare/candidates/`。
