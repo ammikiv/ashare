@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>全池选股列表 · 20260920</title>
+<style>
+:root{--chrome:#1F3B57;--panel:#F6F8FA;--card:#fff;--line:#E3E8EE;--rowline:#F1F4F8;--ink:#1A2230;--dim:#758193;--head:#33415C;--up:#E8402C;--down:#1FA038;--accent:#1F5FA8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--panel);color:var(--ink);font:14px/1.5 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+.num{font-variant-numeric:tabular-nums}.up{color:var(--up)}.down{color:var(--down)}
+.topbar{background:var(--chrome);color:#fff;padding:12px 18px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.topbar h1{font-size:17px;font-weight:700}
+.topbar .meta{font-size:12px;opacity:.8;margin-left:auto}
+.back{color:#fff;text-decoration:none;font-size:13px;opacity:.8}
+.back:hover{opacity:1}
+.toolbar{background:var(--card);border-bottom:1px solid var(--line);padding:10px 18px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;position:sticky;top:0;z-index:10}
+.toolbar input,.toolbar select{font:inherit;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:#fff}
+.toolbar input[type=text]{width:200px}
+.toolbar .count{margin-left:auto;font-size:12.5px;color:var(--dim)}
+.tablewrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{background:#F6F8FA;color:var(--head);font-weight:600;text-align:left;padding:8px 10px;border-bottom:2px solid var(--line);white-space:nowrap;cursor:pointer;user-select:none;position:sticky;top:0}
+th:hover{background:#EEF2F7}
+th.asc::after{content:" ↑";color:var(--accent)}
+th.desc::after{content:" ↓";color:var(--accent)}
+td{padding:6px 10px;border-bottom:1px solid var(--rowline);white-space:nowrap}
+tr:hover td{background:#F8FAFD}
+.str{font-size:11px;padding:1px 6px;border-radius:3px}
+.str-strong{background:#E6F6EA;color:#0A7D3C}
+.str-mid{background:#FFF7E8;color:#8A5A00}
+.str-weak{background:#F5F5F5;color:var(--dim)}
+.pager{display:flex;gap:6px;justify-content:center;padding:14px;align-items:center}
+.pager button{font:inherit;padding:5px 12px;border:1px solid var(--line);border-radius:6px;background:#fff;cursor:pointer}
+.pager button:disabled{opacity:.4;cursor:default}
+.pager button.on{background:var(--chrome);color:#fff;border-color:var(--chrome)}
+.pager .info{font-size:12.5px;color:var(--dim)}
+@media(max-width:768px){.toolbar input[type=text]{width:120px}table{font-size:12px}th,td{padding:5px 6px}}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <a class="back" href="每日选股观察20260920_对外版.html">← 返回报告</a>
+  <h1>全池选股列表</h1>
+  <span style="font-size:12px;opacity:.8">937 只 · 20260920</span>
+  <div class="meta">点击表头排序 · 搜索代码/名称</div>
+</div>
+<div class="toolbar">
+  <input type="text" id="q" placeholder="搜索代码或名称…">
+  <select id="tier"><option value="">全部分类</option><option value="key">重点关注（评分≥0.5）</option><option value="track">持续跟踪（0.4–0.5）</option></select>
+  <select id="regime"><option value="">全部趋势状态</option><option value="Trending">上升趋势</option><option value="Ranging">区间震荡</option><option value="Uncertain">待确认</option></select>
+  <span class="count" id="cnt"></span>
+</div>
+<div class="tablewrap"><table>
+<thead><tr><th data-k="noul" class="desc">综合评分</th><th data-k="score">研究优先级</th><th data-k="conf">信号强度</th><th data-k="c">代码</th><th data-k="n">名称</th><th data-k="rs">相对强度</th><th data-k="pos">价位分位</th><th data-k="fund">主力资金5日</th><th data-k="fd">连续流入</th><th data-k="regime">趋势状态</th></tr></thead>
+<tbody id="tb"></tbody></table></div>
+<div class="pager" id="pager"></div>
+</body></html>
