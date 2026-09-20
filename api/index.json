@@ -9,6 +9,11 @@
     "limit_up": 15,
     "ascend": 22,
     "resonance": 5,
-    "diverge": 100
+    "diverge": 100,
+    "breakout": {
+      "file": "breakout.json",
+      "count": 17,
+      "desc": "突破状态（5日内）"
+    }
   }
 }
