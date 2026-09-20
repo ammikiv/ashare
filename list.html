@@ -61,23 +61,26 @@ tr:hover td{background:#F8FAFD}
   var tb = document.getElementById('tb');
   var cnt = document.getElementById('cnt');
   if (!tb || typeof POOL === 'undefined') return;
+  var regimeMap = {Trending:'上升趋势', Ranging:'区间震荡', Uncertain:'待确认'};
   var html = '';
   for (var i = 0; i < POOL.length; i++) {
     var s = POOL[i];
     var noul = s.noul.toFixed(2);
     var score = s.score.toFixed(2);
+    var conf = (s.conf != null) ? (s.conf * 100).toFixed(0) + '%' : '-';
     var rs = s.rs ? s.rs.toFixed(1) : '-';
-    var fund = s.fund ? (s.fund > 0 ? '+' + s.fund.toFixed(0) : s.fund.toFixed(0)) : '-';
-    var fd = s.fd || '-';
-    var regime = s.regime || '-';
+    var pos = s.pos != null ? s.pos.toFixed(1) + '%' : '-';
+    var fund = s.fund != null ? (s.fund > 0 ? '+' + s.fund.toFixed(1) + '%' : s.fund.toFixed(1) + '%') : '-';
+    var fd = s.fd != null ? s.fd + ' 次' : '-';
+    var regime = regimeMap[s.regime] || s.regime || '-';
     html += '<tr>' +
       '<td class="num">' + noul + '</td>' +
       '<td class="num">' + score + '</td>' +
-      '<td class="num">' + s.conf + '</td>' +
+      '<td class="num">' + conf + '</td>' +
       '<td><a href="https://stockpage.10jqka.com.cn/' + s.c + '" target="_blank">' + s.c + '</a></td>' +
       '<td>' + s.n + '</td>' +
       '<td class="num">' + rs + '</td>' +
-      '<td class="num">' + s.pos + '</td>' +
+      '<td class="num">' + pos + '</td>' +
       '<td class="num">' + fund + '</td>' +
       '<td class="num">' + fd + '</td>' +
       '<td>' + regime + '</td>' +
