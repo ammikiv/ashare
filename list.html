@@ -75,7 +75,7 @@ tr:hover td{background:#F8FAFD}
     var regime = regimeMap[s.regime] || s.regime || '-';
     html += '<tr>' +
       '<td><a href="https://stockpage.10jqka.com.cn/' + s.c + '" target="_blank">' + s.c + '</a></td>' +
-      '<td>' + s.n + '</td>' +
+      '<td><a href="https://xueqiu.com/S/' + (s.c[0] === '6' ? 'SH' : s.c[0] === '0' || s.c[0] === '3' ? 'SZ' : 'BJ') + s.c + '" target="_blank">' + s.n + '</a></td>' +
       '<td>' + (s.ind || '-') + '</td>' +
       '<td>' + regime + '</td>' +
       '<td class="num">' + noul + '</td>' +
