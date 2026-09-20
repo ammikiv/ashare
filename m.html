@@ -86,9 +86,27 @@ tr:hover td{background:#F8FAFD}
   .kpi-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; }
   .kpi:nth-child(n+3) { display: none !important; }
   
-  /* 表格简化：只显示前 2 列（排名/板块 或 代码/名称） */
+  /* 表格简化：默认只显示前 2 列 */
   table th:nth-child(n+3),
   table td:nth-child(n+3) { display: none !important; }
+  
+  /* 板块强弱表例外：显示排名、板块、当日RS、当日强度（第 1,2,9,10 列） */
+  #sector table th:nth-child(n+3),
+  #sector table td:nth-child(n+3) { display: table-cell !important; }
+  #sector table th:nth-child(n+11),
+  #sector table td:nth-child(n+11) { display: table-cell !important; }
+  #sector table th:nth-child(3),
+  #sector table td:nth-child(3) { display: none !important; }
+  #sector table th:nth-child(4),
+  #sector table td:nth-child(4) { display: none !important; }
+  #sector table th:nth-child(5),
+  #sector table td:nth-child(5) { display: none !important; }
+  #sector table th:nth-child(6),
+  #sector table td:nth-child(6) { display: none !important; }
+  #sector table th:nth-child(7),
+  #sector table td:nth-child(7) { display: none !important; }
+  #sector table th:nth-child(8),
+  #sector table td:nth-child(8) { display: none !important; }
   
   /* 卡片间距减小 */
   .card { margin-bottom: 12px !important; padding: 12px !important; }
