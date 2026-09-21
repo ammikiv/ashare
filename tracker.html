@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>选股跟踪复盘器</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #f5f6f8;
+    color: #1a1f2e;
+    line-height: 1.5;
+    padding: 20px;
+  }
+  .container { max-width: 1400px; margin: 0 auto; }
+  h1 { font-size: 24px; margin-bottom: 8px; }
+  .subtitle { color: #758193; font-size: 14px; margin-bottom: 24px; }
+  .card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  }
+  .card h2 { font-size: 16px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .tag {
+    background: #1F5FA81a;
+    color: #1F5FA8;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: normal;
+  }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-bottom: 16px; }
+  .stat {
+    background: #f8f9fb;
+    border-radius: 6px;
+    padding: 12px 16px;
+  }
+  .stat .label { font-size: 12px; color: #758193; margin-bottom: 4px; }
+  .stat .value { font-size: 20px; font-weight: 600; }
+  .stat .value.green { color: #1FA038; }
+  .stat .value.red { color: #E8402C; }
+  .stat .value.orange { color: #E8A038; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid #eef0f4; }
+  th { font-weight: 600; color: #758193; font-size: 12px; background: #f8f9fb; }
+  tr:hover { background: #f8f9fb; }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .up { color: #E8402C; }
+  .down { color: #1FA038; }
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+  }
+  .badge-watch { background: #1F5FA822; color: #1F5FA8; }
+  .badge-track { background: #1FA03822; color: #1FA038; }
+  .badge-early { background: #E8A03822; color: #E8A038; }
+  .badge-spring { background: #75819322; color: #758193; }
+  .badge-breakout { background: #E8402C22; color: #E8402C; }
+  .btn {
+    padding: 6px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .btn-primary { background: #1F5FA8; color: #fff; }
+  .btn-secondary { background: #eef0f4; color: #1a1f2e; }
+  .btn-danger { background: #E8402C; color: #fff; }
+  .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .row { display: flex; gap: 8px; align-items: center; margin-bottom: 12px; flex-wrap: wrap; }
+  input, select {
+    padding: 6px 10px;
+    border: 1px solid #d0d5dd;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  input:focus, select:focus { outline: none; border-color: #1F5FA8; }
+  .empty { text-align: center; color: #758193; padding: 24px; font-size: 14px; }
+  .nav { display: flex; gap: 4px; margin-bottom: 16px; }
+  .nav button {
+    padding: 6px 16px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 13px;
+    border-radius: 4px;
+    color: #758193;
+  }
+  .nav button.active { background: #1F5FA8; color: #fff; }
+  .hidden { display: none; }
+  .progress-bar {
+    width: 100%;
+    height: 6px;
+    background: #eef0f4;
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 8px;
+  }
+  .progress-fill { height: 100%; background: #1FA038; transition: width 0.3s; }
+  .status { font-size: 12px; color: #758193; margin-left: 8px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>选股跟踪复盘器</h1>
+  <p class="subtitle">自动导入选股 → 自动拉行情 → 跟踪命中率 → 复盘改进</p>
+
+  <!-- 导航 -->
+  <div class="nav">
+    <button class="active" onclick="showTab('dashboard')">仪表盘</button>
+    <button onclick="showTab('daily')">每日记录</button>
+    <button onclick="showTab('tracking')">跟踪中</button>
+    <button onclick="showTab('review')">复盘档案</button>
+  </div>
+
+  <!-- 仪表盘 -->
+  <div id="tab-dashboard">
+    <div class="grid">
+      <div class="stat">
+        <div class="label">累计选股</div>
+        <div class="value" id="stat-total">0</div>
+      </div>
+      <div class="stat">
+        <div class="label">跟踪中</div>
+        <div class="value orange" id="stat-active">0</div>
+      </div>
+      <div class="stat">
+        <div class="label">命中率（+5%以上）</div>
+        <div class="value green" id="stat-hit-rate">—</div>
+      </div>
+      <div class="stat">
+        <div class="label">平均收益</div>
+        <div class="value" id="stat-avg-return">—</div>
+      </div>
+      <div class="stat">
+        <div class="label">最佳案例</div>
+        <div class="value green" id="stat-best">—</div>
+      </div>
+      <div class="stat">
+        <div class="label">最差案例</div>
+        <div class="value red" id="stat-worst">—</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>最近 5 日选股概览</h2>
+      <div id="recent-days"></div>
+    </div>
+  </div>
+
+  <!-- 每日记录 -->
+  <div id="tab-daily" class="hidden">
+    <div class="card">
+      <h2>从 API 自动导入今日选股</h2>
+      <div class="row">
+        <button class="btn btn-primary" id="btn-import" onclick="importFromApi()">一键导入今日选股</button>
+        <span class="status" id="import-status"></span>
+      </div>
+      <div class="progress-bar hidden" id="import-progress"><div class="progress-fill" style="width:0%"></div></div>
+      <p style="font-size:12px;color:#758193;margin-top:8px">自动从 api/watch.json、track.json、early.json、spring.json、breakout.json 读取，并拉取当前价</p>
+    </div>
+
+    <div class="card">
+      <h2>手动录入</h2>
+      <div class="row">
+        <label>日期:</label>
+        <input type="date" id="input-date">
+        <label>类别:</label>
+        <select id="input-category">
+          <option value="watch">首屏重点关注</option>
+          <option value="track">持续跟踪</option>
+          <option value="early">早期启动</option>
+          <option value="spring">Spring 事件</option>
+          <option value="breakout">突破状态</option>
+        </select>
+        <label>股票代码:</label>
+        <input type="text" id="input-code" placeholder="如 603268">
+        <label>名称:</label>
+        <input type="text" id="input-name" placeholder="如 松发股份">
+        <label>买入参考价:</label>
+        <input type="number" step="0.01" id="input-price" placeholder="如 20.50">
+        <button class="btn btn-primary" onclick="addStock()">添加</button>
+      </div>
+      <p style="font-size:12px;color:#758193">或批量粘贴（每行：代码,名称,价格）</p>
+      <div class="row">
+        <textarea id="input-batch" rows="4" style="flex:1" placeholder="603268,松发股份,20.50&#10;301366,一博科技,72.66"></textarea>
+        <button class="btn btn-primary" onclick="batchAdd()">批量添加</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>今日选股列表 <span class="tag" id="today-count">0 只</span></h2>
+      <table id="today-table">
+        <thead>
+          <tr>
+            <th>代码</th>
+            <th>名称</th>
+            <th>类别</th>
+            <th class="num">买入价</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="today-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 跟踪中 -->
+  <div id="tab-tracking" class="hidden">
+    <div class="card">
+      <h2>跟踪中的选股 <span class="tag" id="tracking-count">0 只</span></h2>
+      <div class="row">
+        <button class="btn btn-primary" id="btn-fetch" onclick="fetchAllPrices()">自动拉取最新价</button>
+        <button class="btn btn-secondary" onclick="updatePrices()">手动批量更新</button>
+        <span class="status" id="fetch-status"></span>
+      </div>
+      <div class="progress-bar hidden" id="fetch-progress"><div class="progress-fill" style="width:0%"></div></div>
+      <textarea id="price-batch" rows="3" style="width:100%;margin-bottom:12px" placeholder="手动更新：每行 代码,现价"></textarea>
+      <table>
+        <thead>
+          <tr>
+            <th>入选日期</th>
+            <th>代码</th>
+            <th>名称</th>
+            <th>类别</th>
+            <th class="num">买入价</th>
+            <th class="num">现价</th>
+            <th class="num">收益</th>
+            <th class="num">持仓天数</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody id="tracking-tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 复盘档案 -->
+  <div id="tab-review" class="hidden">
+    <div class="card">
+      <h2>复盘档案 <span class="tag" id="review-count">0 条</span></h2>
+      <table>
+        <thead>
+          <tr>
+            <th>入选日期</th>
+            <th>了结日期</th>
+            <th>代码</th>
+            <th>名称</th>
+            <th>类别</th>
+            <th class="num">买入价</th>
+            <th class="num">了结价</th>
+            <th class="num">收益</th>
+            <th class="num">持仓天数</th>
+            <th>复盘备注</th>
+          </tr>
+        </thead>
+        <tbody id="review-tbody"></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>命中率统计</h2>
+      <div id="hit-stats"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// 数据存储
+const STORAGE_KEY = 'stock_tracker_data_v2';
+let data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{"entries": []}');
+
+// API 配置
+const API_BASE = './api/';
+const API_LISTS = [
+  { file: 'watch.json', category: 'watch', label: '首屏重点关注' },
+  { file: 'track.json', category: 'track', label: '持续跟踪' },
+  { file: 'early.json', category: 'early', label: '早期启动' },
+  { file: 'spring.json', category: 'spring', label: 'Spring 事件' },
+  { file: 'breakout.json', category: 'breakout', label: '突破状态' },
+];
+
+// 东方财富行情 API
+function getSecid(code) {
+  if (code[0] === '6') return '1.' + code;  // SH
+  if (code[0] === '0' || code[0] === '3') return '0.' + code;  // SZ
+  if (code[0] === '8' || code[0] === '4') return '0.' + code;  // BJ (用 SZ 接口试)
+  return '1.' + code;
+}
+
+async function fetchPrice(code) {
+  const secid = getSecid(code);
+  const url = `https://push2.eastmoney.com/api/qt/stock/get?secid=${secid}&fields=f43,f57,f58,f60`;
+  try {
+    const resp = await fetch(url);
+    const json = await resp.json();
+    if (json.data && json.data.f43) {
+      return json.data.f43 / 100;  // 价格除以 100
+    }
+    return null;
+  } catch (e) {
+    console.error('fetchPrice error:', code, e);
+    return null;
+  }
+}
+
+function save() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+function todayStr() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function daysBetween(d1, d2) {
+  return Math.round((new Date(d2) - new Date(d1)) / 86400000);
+}
+
+// 导航
+function showTab(tab) {
+  document.querySelectorAll('.nav button').forEach((b, i) => {
+    b.classList.toggle('active', ['dashboard','daily','tracking','review'][i] === tab);
+  });
+  ['dashboard','daily','tracking','review'].forEach(t => {
+    document.getElementById('tab-' + t).classList.toggle('hidden', t !== tab);
+  });
+  if (tab === 'dashboard') renderDashboard();
+  if (tab === 'daily') renderToday();
+  if (tab === 'tracking') renderTracking();
+  if (tab === 'review') renderReview();
+}
+
+// 从 API 自动导入
+async function importFromApi() {
+  const btn = document.getElementById('btn-import');
+  const status = document.getElementById('import-status');
+  const progress = document.getElementById('import-progress');
+  const progressFill = progress.querySelector('.progress-fill');
+
+  btn.disabled = true;
+  status.textContent = '正在导入...';
+  progress.classList.remove('hidden');
+
+  const date = todayStr();
+  let totalNew = 0;
+  let totalExist = 0;
+
+  for (let i = 0; i < API_LISTS.length; i++) {
+    const list = API_LISTS[i];
+    progressFill.style.width = (i / API_LISTS.length * 100) + '%';
+    status.textContent = `正在导入 ${list.label}...`;
+
+    try {
+      const resp = await fetch(API_BASE + list.file);
+      const stocks = await resp.json();
+      for (const s of stocks) {
+        const code = s.code;
+        const name = s.name;
+        // 检查是否已存在
+        const exist = data.entries.find(e => e.date === date && e.code === code);
+        if (exist) {
+          totalExist++;
+          continue;
+        }
+        // 拉取当前价
+        status.textContent = `拉取 ${name} 行情...`;
+        const price = await fetchPrice(code);
+        data.entries.push({
+          date, code, name,
+          category: list.category,
+          buyPrice: price || 0,
+          currentPrice: price,
+          closeDate: null, closePrice: null, note: ''
+        });
+        totalNew++;
+      }
+    } catch (e) {
+      console.error('import error:', list.file, e);
+      status.textContent = `导入 ${list.label} 失败: ${e.message}`;
+    }
+  }
+
+  progressFill.style.width = '100%';
+  status.textContent = `完成：新增 ${totalNew} 只，已存在 ${totalExist} 只`;
+  btn.disabled = false;
+  save();
+  renderToday();
+}
+
+// 自动拉取所有跟踪中股票的最新价
+async function fetchAllPrices() {
+  const btn = document.getElementById('btn-fetch');
+  const status = document.getElementById('fetch-status');
+  const progress = document.getElementById('fetch-progress');
+  const progressFill = progress.querySelector('.progress-fill');
+
+  const active = data.entries.filter(e => !e.closeDate);
+  if (active.length === 0) {
+    status.textContent = '无跟踪中股票';
+    return;
+  }
+
+  btn.disabled = true;
+  status.textContent = `正在拉取 ${active.length} 只行情...`;
+  progress.classList.remove('hidden');
+
+  let success = 0;
+  for (let i = 0; i < active.length; i++) {
+    const e = active[i];
+    progressFill.style.width = (i / active.length * 100) + '%';
+    status.textContent = `拉取 ${e.name} (${e.code})...`;
+    const price = await fetchPrice(e.code);
+    if (price) {
+      e.currentPrice = price;
+      success++;
+    }
+    // 避免请求太快
+    await new Promise(r => setTimeout(r, 200));
+  }
+
+  progressFill.style.width = '100%';
+  status.textContent = `完成：更新 ${success}/${active.length} 只`;
+  btn.disabled = false;
+  save();
+  renderTracking();
+}
+
+// 仪表盘
+function renderDashboard() {
+  const active = data.entries.filter(e => !e.closeDate);
+  const closed = data.entries.filter(e => e.closeDate);
+
+  document.getElementById('stat-total').textContent = data.entries.length;
+  document.getElementById('stat-active').textContent = active.length;
+
+  if (closed.length > 0) {
+    const wins = closed.filter(e => e.closePrice && (e.closePrice - e.buyPrice) / e.buyPrice > 0.05);
+    const hitRate = (wins.length / closed.length * 100).toFixed(1);
+    const avgReturn = (closed.reduce((s, e) => s + (e.closePrice - e.buyPrice) / e.buyPrice * 100, 0) / closed.length).toFixed(1);
+    const best = Math.max(...closed.map(e => (e.closePrice - e.buyPrice) / e.buyPrice * 100));
+    const worst = Math.min(...closed.map(e => (e.closePrice - e.buyPrice) / e.buyPrice * 100));
+    document.getElementById('stat-hit-rate').textContent = hitRate + '%';
+    document.getElementById('stat-avg-return').textContent = avgReturn + '%';
+    document.getElementById('stat-best').textContent = '+' + best.toFixed(1) + '%';
+    document.getElementById('stat-worst').textContent = worst.toFixed(1) + '%';
+  }
+
+  const days = [...new Set(data.entries.map(e => e.date))].sort().slice(-5).reverse();
+  document.getElementById('recent-days').innerHTML = days.map(d => {
+    const stocks = data.entries.filter(e => e.date === d);
+    return `<div style="margin-bottom:12px">
+      <b>${d}</b> <span style="color:#758193">(${stocks.length} 只)</span>
+      <div style="margin-top:4px;color:#1a1f2e">${stocks.map(s => s.name + '(' + s.category + ')').join('、')}</div>
+    </div>`;
+  }).join('') || '<div class="empty">暂无记录</div>';
+}
+
+// 每日记录
+function addStock() {
+  const date = document.getElementById('input-date').value || todayStr();
+  const category = document.getElementById('input-category').value;
+  const code = document.getElementById('input-code').value.trim();
+  const name = document.getElementById('input-name').value.trim();
+  const price = parseFloat(document.getElementById('input-price').value);
+  if (!code || !name || !price) { alert('请填写完整'); return; }
+  data.entries.push({ date, code, name, category, buyPrice: price, currentPrice: price, closeDate: null, closePrice: null, note: '' });
+  save();
+  document.getElementById('input-code').value = '';
+  document.getElementById('input-name').value = '';
+  document.getElementById('input-price').value = '';
+  renderToday();
+}
+
+function batchAdd() {
+  const text = document.getElementById('input-batch').value.trim();
+  const date = document.getElementById('input-date').value || todayStr();
+  const category = document.getElementById('input-category').value;
+  const lines = text.split('\n').filter(l => l.trim());
+  let count = 0;
+  lines.forEach(line => {
+    const parts = line.split(/[,，\s]+/);
+    if (parts.length >= 3) {
+      data.entries.push({ date, code: parts[0], name: parts[1], category, buyPrice: parseFloat(parts[2]), currentPrice: parseFloat(parts[2]), closeDate: null, closePrice: null, note: '' });
+      count++;
+    }
+  });
+  save();
+  document.getElementById('input-batch').value = '';
+  renderToday();
+  alert(`添加了 ${count} 只`);
+}
+
+function removeStock(idx) {
+  if (!confirm('确定删除？')) return;
+  data.entries.splice(idx, 1);
+  save();
+  renderToday();
+}
+
+function renderToday() {
+  const date = document.getElementById('input-date').value || todayStr();
+  const today = data.entries.filter(e => e.date === date);
+  document.getElementById('today-count').textContent = today.length + ' 只';
+  document.getElementById('today-tbody').innerHTML = today.map(e => {
+    const realIdx = data.entries.indexOf(e);
+    return `<tr>
+      <td>${e.code}</td>
+      <td><b>${e.name}</b></td>
+      <td><span class="badge badge-${e.category}">${e.category}</span></td>
+      <td class="num">${e.buyPrice.toFixed(2)}</td>
+      <td><button class="btn btn-danger" onclick="removeStock(${realIdx})">删除</button></td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="5" class="empty">暂无记录</td></tr>';
+}
+
+// 跟踪中
+function updatePrices() {
+  const text = document.getElementById('price-batch').value.trim();
+  const lines = text.split('\n').filter(l => l.trim());
+  let count = 0;
+  lines.forEach(line => {
+    const parts = line.split(/[,，\s]+/);
+    if (parts.length >= 2) {
+      const code = parts[0];
+      const price = parseFloat(parts[1]);
+      data.entries.forEach(e => {
+        if (e.code === code && !e.closeDate) {
+          e.currentPrice = price;
+          count++;
+        }
+      });
+    }
+  });
+  save();
+  document.getElementById('price-batch').value = '';
+  renderTracking();
+  alert(`更新了 ${count} 只价格`);
+}
+
+function closeStock(idx, note) {
+  const price = parseFloat(prompt('了结价格:', data.entries[idx].currentPrice || data.entries[idx].buyPrice));
+  if (!price) return;
+  data.entries[idx].closeDate = todayStr();
+  data.entries[idx].closePrice = price;
+  data.entries[idx].note = note || prompt('复盘备注（可选）:') || '';
+  save();
+  renderTracking();
+}
+
+function renderTracking() {
+  const active = data.entries.filter(e => !e.closeDate);
+  document.getElementById('tracking-count').textContent = active.length + ' 只';
+  document.getElementById('tracking-tbody').innerHTML = active.map(e => {
+    const realIdx = data.entries.indexOf(e);
+    const ret = e.currentPrice ? ((e.currentPrice - e.buyPrice) / e.buyPrice * 100) : null;
+    const days = daysBetween(e.date, todayStr());
+    const retClass = ret === null ? '' : (ret > 0 ? 'up' : 'down');
+    const retStr = ret === null ? '—' : (ret > 0 ? '+' : '') + ret.toFixed(1) + '%';
+    return `<tr>
+      <td>${e.date}</td>
+      <td>${e.code}</td>
+      <td><b>${e.name}</b></td>
+      <td><span class="badge badge-${e.category}">${e.category}</span></td>
+      <td class="num">${e.buyPrice.toFixed(2)}</td>
+      <td class="num">${e.currentPrice ? e.currentPrice.toFixed(2) : '—'}</td>
+      <td class="num ${retClass}">${retStr}</td>
+      <td class="num">${days}</td>
+      <td><button class="btn btn-secondary" onclick="closeStock(${realIdx})">了结</button></td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="9" class="empty">暂无跟踪中</td></tr>';
+}
+
+// 复盘档案
+function renderReview() {
+  const closed = data.entries.filter(e => e.closeDate);
+  document.getElementById('review-count').textContent = closed.length + ' 条';
+  document.getElementById('review-tbody').innerHTML = closed.map(e => {
+    const ret = (e.closePrice - e.buyPrice) / e.buyPrice * 100;
+    const days = daysBetween(e.date, e.closeDate);
+    const cls = ret > 0 ? 'up' : 'down';
+    return `<tr>
+      <td>${e.date}</td>
+      <td>${e.closeDate}</td>
+      <td>${e.code}</td>
+      <td><b>${e.name}</b></td>
+      <td><span class="badge badge-${e.category}">${e.category}</span></td>
+      <td class="num">${e.buyPrice.toFixed(2)}</td>
+      <td class="num">${e.closePrice.toFixed(2)}</td>
+      <td class="num ${cls}">${ret > 0 ? '+' : ''}${ret.toFixed(1)}%</td>
+      <td class="num">${days}</td>
+      <td style="font-size:12px">${e.note || '—'}</td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="10" class="empty">暂无复盘记录</td></tr>';
+
+  if (closed.length > 0) {
+    const wins5 = closed.filter(e => (e.closePrice - e.buyPrice) / e.buyPrice > 0.05).length;
+    const wins10 = closed.filter(e => (e.closePrice - e.buyPrice) / e.buyPrice > 0.10).length;
+    const losses = closed.filter(e => (e.closePrice - e.buyPrice) / e.buyPrice < -0.05).length;
+    const avgRet = closed.reduce((s, e) => s + (e.closePrice - e.buyPrice) / e.buyPrice * 100, 0) / closed.length;
+    document.getElementById('hit-stats').innerHTML = `
+      <div class="grid">
+        <div class="stat"><div class="label">样本数</div><div class="value">${closed.length}</div></div>
+        <div class="stat"><div class="label">+5% 命中率</div><div class="value green">${(wins5/closed.length*100).toFixed(1)}% (${wins5}/${closed.length})</div></div>
+        <div class="stat"><div class="label">+10% 命中率</div><div class="value green">${(wins10/closed.length*100).toFixed(1)}% (${wins10}/${closed.length})</div></div>
+        <div class="stat"><div class="label">-5% 败率</div><div class="value red">${(losses/closed.length*100).toFixed(1)}% (${losses}/${closed.length})</div></div>
+        <div class="stat"><div class="label">平均收益</div><div class="value ${avgRet>0?'green':'red'}">${avgRet>0?'+':''}${avgRet.toFixed(1)}%</div></div>
+      </div>
+    `;
+  } else {
+    document.getElementById('hit-stats').innerHTML = '<div class="empty">暂无复盘数据</div>';
+  }
+}
+
+// 初始化
+document.getElementById('input-date').value = todayStr();
+renderDashboard();
+</script>
+</body>
+</html>
