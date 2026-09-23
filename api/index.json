@@ -5,16 +5,9 @@
     "watch": 7,
     "track": 12,
     "early": 20,
-    "spring": 10,
+    "spring": 76,
     "limit_up": 8,
-    "ascend": 22,
-    "resonance": 29,
-    "diverge": 53,
-    "breakout": {
-      "file": "breakout.json",
-      "count": 17,
-      "desc": "突破状态（5日内）"
-    }
+    "ascend": 22
   },
   "snapshots": [
     {
