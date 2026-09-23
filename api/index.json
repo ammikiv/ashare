@@ -1,15 +1,15 @@
 {
-  "asof": "20260922",
+  "asof": "20260923",
   "total_pool": 937,
   "lists": {
     "watch": 7,
     "track": 12,
     "early": 20,
     "spring": 10,
-    "limit_up": 11,
+    "limit_up": 8,
     "ascend": 22,
-    "resonance": 31,
-    "diverge": 52,
+    "resonance": 29,
+    "diverge": 53,
     "breakout": {
       "file": "breakout.json",
       "count": 17,
@@ -18,9 +18,9 @@
   },
   "snapshots": [
     {
-      "asof": "20260922",
+      "asof": "20260923",
       "model": "jev-1.13.0",
-      "file": "history/tracker_lists_20260922.json"
+      "file": "history/tracker_lists_20260923.json"
     }
   ]
 }
