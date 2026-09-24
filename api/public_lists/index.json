@@ -1,0 +1,62 @@
+{
+ "latest": "20260924",
+ "asof": "2026-09-24",
+ "cards": {
+  "key": {
+   "name": "今日核心",
+   "count": 7
+  },
+  "track": {
+   "name": "持续跟踪",
+   "count": 12
+  },
+  "lps": {
+   "name": "支撑观察",
+   "count": 3
+  },
+  "structready": {
+   "name": "早期·待确认",
+   "count": 2
+  },
+  "early": {
+   "name": "早期启动候选",
+   "count": 20
+  },
+  "spring": {
+   "name": "Spring 关键支撑位",
+   "count": 18
+  },
+  "panic": {
+   "name": "恐慌候选",
+   "count": 8
+  },
+  "retest": {
+   "name": "二次测试候选",
+   "count": 3
+  },
+  "breakout": {
+   "name": "突破状态",
+   "count": 52
+  },
+  "dist": {
+   "name": "派发风险·成熟在区间",
+   "count": 3
+  },
+  "dist_below": {
+   "name": "派发风险·已跌破",
+   "count": 39
+  },
+  "dist_break": {
+   "name": "放量破带·早期风险",
+   "count": 6
+  },
+  "limitup": {
+   "name": "今日涨停",
+   "count": 5
+  },
+  "ascend": {
+   "name": "昇腾产业链",
+   "count": 22
+  }
+ }
+}
