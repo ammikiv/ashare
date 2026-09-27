@@ -26,6 +26,10 @@
    "name": "Spring 关键支撑位",
    "count": 2
   },
+  "yang": {
+   "name": "连续阳线",
+   "count": 13
+  },
   "panic": {
    "name": "恐慌候选",
    "count": 6
