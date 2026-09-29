@@ -1,6 +1,6 @@
 {
  "schema": "tracker_review/v1",
- "generated_at": "2026-09-29T17:52:49",
+ "generated_at": "2026-09-29T18:29:18",
  "run_tag": "20260929",
  "caliber": {
   "anchor": "api/history/tracker_lists_*.json 的 Jev深析首屏/持续跟踪短名单",
@@ -23,8 +23,13 @@
     "60": null
    },
    "industry_equal": {
-    "大科技": {
-     "5": -3.72,
+    "金融": {
+     "5": -1.84,
+     "20": null,
+     "60": null
+    },
+    "高端制造": {
+     "5": -6.05,
      "20": null,
      "60": null
     },
@@ -43,23 +48,18 @@
      "20": null,
      "60": null
     },
-    "高端制造": {
-     "5": -6.05,
+    "半导体": {
+     "5": -6.18,
      "20": null,
      "60": null
     },
-    "金融": {
-     "5": -1.84,
+    "大科技": {
+     "5": -3.72,
      "20": null,
      "60": null
     },
     "创新药": {
      "5": 2.08,
-     "20": null,
-     "60": null
-    },
-    "半导体": {
-     "5": -6.18,
      "20": null,
      "60": null
     }
@@ -68,23 +68,28 @@
   },
   "2026-09-21": {
    "pool_equal": {
-    "5": -5.87,
+    "5": -5.98,
     "20": null,
     "60": null
    },
    "industry_equal": {
-    "大科技": {
-     "5": -4.47,
+    "金融": {
+     "5": -3.45,
+     "20": null,
+     "60": null
+    },
+    "高端制造": {
+     "5": -6.44,
      "20": null,
      "60": null
     },
     "医药": {
-     "5": -2.0,
+     "5": -1.9,
      "20": null,
      "60": null
     },
     "通信": {
-     "5": -7.55,
+     "5": -7.98,
      "20": null,
      "60": null
     },
@@ -93,23 +98,18 @@
      "20": null,
      "60": null
     },
-    "高端制造": {
-     "5": -6.46,
+    "半导体": {
+     "5": -6.0,
      "20": null,
      "60": null
     },
-    "金融": {
-     "5": -3.45,
+    "大科技": {
+     "5": -4.47,
      "20": null,
      "60": null
     },
     "创新药": {
-     "5": -2.93,
-     "20": null,
-     "60": null
-    },
-    "半导体": {
-     "5": -5.74,
+     "5": -2.95,
      "20": null,
      "60": null
     }
@@ -123,7 +123,12 @@
     "60": null
    },
    "industry_equal": {
-    "大科技": {
+    "金融": {
+     "5": null,
+     "20": null,
+     "60": null
+    },
+    "高端制造": {
      "5": null,
      "20": null,
      "60": null
@@ -143,22 +148,17 @@
      "20": null,
      "60": null
     },
-    "高端制造": {
+    "半导体": {
      "5": null,
      "20": null,
      "60": null
     },
-    "金融": {
+    "大科技": {
      "5": null,
      "20": null,
      "60": null
     },
     "创新药": {
-     "5": null,
-     "20": null,
-     "60": null
-    },
-    "半导体": {
      "5": null,
      "20": null,
      "60": null
@@ -173,7 +173,12 @@
     "60": null
    },
    "industry_equal": {
-    "大科技": {
+    "金融": {
+     "5": null,
+     "20": null,
+     "60": null
+    },
+    "高端制造": {
      "5": null,
      "20": null,
      "60": null
@@ -193,22 +198,17 @@
      "20": null,
      "60": null
     },
-    "高端制造": {
+    "半导体": {
      "5": null,
      "20": null,
      "60": null
     },
-    "金融": {
+    "大科技": {
      "5": null,
      "20": null,
      "60": null
     },
     "创新药": {
-     "5": null,
-     "20": null,
-     "60": null
-    },
-    "半导体": {
      "5": null,
      "20": null,
      "60": null
@@ -223,7 +223,12 @@
     "60": null
    },
    "industry_equal": {
-    "大科技": {
+    "金融": {
+     "5": null,
+     "20": null,
+     "60": null
+    },
+    "高端制造": {
      "5": null,
      "20": null,
      "60": null
@@ -243,22 +248,17 @@
      "20": null,
      "60": null
     },
-    "高端制造": {
+    "半导体": {
      "5": null,
      "20": null,
      "60": null
     },
-    "金融": {
+    "大科技": {
      "5": null,
      "20": null,
      "60": null
     },
     "创新药": {
-     "5": null,
-     "20": null,
-     "60": null
-    },
-    "半导体": {
      "5": null,
      "20": null,
      "60": null
@@ -273,7 +273,12 @@
     "60": null
    },
    "industry_equal": {
-    "大科技": {
+    "金融": {
+     "5": null,
+     "20": null,
+     "60": null
+    },
+    "高端制造": {
      "5": null,
      "20": null,
      "60": null
@@ -293,22 +298,17 @@
      "20": null,
      "60": null
     },
-    "高端制造": {
+    "半导体": {
      "5": null,
      "20": null,
      "60": null
     },
-    "金融": {
+    "大科技": {
      "5": null,
      "20": null,
      "60": null
     },
     "创新药": {
-     "5": null,
-     "20": null,
-     "60": null
-    },
-    "半导体": {
      "5": null,
      "20": null,
      "60": null
@@ -323,7 +323,12 @@
     "60": null
    },
    "industry_equal": {
-    "大科技": {
+    "金融": {
+     "5": null,
+     "20": null,
+     "60": null
+    },
+    "高端制造": {
      "5": null,
      "20": null,
      "60": null
@@ -343,12 +348,12 @@
      "20": null,
      "60": null
     },
-    "高端制造": {
+    "半导体": {
      "5": null,
      "20": null,
      "60": null
     },
-    "金融": {
+    "大科技": {
      "5": null,
      "20": null,
      "60": null
@@ -357,14 +362,9 @@
      "5": null,
      "20": null,
      "60": null
-    },
-    "半导体": {
-     "5": null,
-     "20": null,
-     "60": null
     }
    },
-   "n_pool": 690
+   "n_pool": 787
   }
  },
  "summary": {
@@ -375,7 +375,7 @@
   "n_win20": 0,
   "hit5_rate": null,
   "hit10_rate": null,
-  "avg_ret5": -6.5,
+  "avg_ret5": -6.0,
   "avg_ret20": null,
   "avg_ret60": null,
   "by_list": {
@@ -409,7 +409,7 @@
    {
     "d0": "2026-09-21",
     "n": 19,
-    "avg_ret5": -5.37
+    "avg_ret5": -4.44
    },
    {
     "d0": "2026-09-22",
@@ -441,7 +441,7 @@
   "worst": [],
   "benchmark": {
    "pool_equal": {
-    "ret5": -5.64,
+    "ret5": -5.7,
     "ret20": null,
     "ret60": null
    }
@@ -713,10 +713,10 @@
     "60": null
    },
    "win20": null,
-   "cur_ret": -4.35,
+   "cur_ret": -5.91,
    "status": "active",
    "c0": 179.82,
-   "days_held": 5,
+   "days_held": 6,
    "name": null,
    "industry": null,
    "sector": null
@@ -755,10 +755,10 @@
     "60": null
    },
    "win20": null,
-   "cur_ret": -9.64,
+   "cur_ret": -9.98,
    "status": "active",
    "c0": 41.69,
-   "days_held": 5,
+   "days_held": 6,
    "name": null,
    "industry": null,
    "sector": null
@@ -839,10 +839,10 @@
     "60": null
    },
    "win20": null,
-   "cur_ret": -13.23,
+   "cur_ret": -10.66,
    "status": "active",
    "c0": 1834.0,
-   "days_held": 5,
+   "days_held": 6,
    "name": "源杰科技",
    "industry": "半导体",
    "sector": null
@@ -1170,15 +1170,15 @@
    ],
    "ret": {
     "1": 7.56,
-    "5": null,
+    "5": 12.39,
     "20": null,
     "60": null
    },
    "win20": null,
-   "cur_ret": 8.68,
+   "cur_ret": 12.39,
    "status": "active",
    "c0": 41.82,
-   "days_held": 4,
+   "days_held": 5,
    "name": "炬芯科技",
    "industry": "半导体",
    "sector": null
@@ -1574,10 +1574,10 @@
     "60": null
    },
    "win20": null,
-   "cur_ret": 1.04,
+   "cur_ret": 4.49,
    "status": "active",
    "c0": 44.98,
-   "days_held": 3,
+   "days_held": 4,
    "name": "炬芯科技",
    "industry": "半导体",
    "sector": null
@@ -2603,10 +2603,10 @@
     "60": null
    },
    "win20": null,
-   "cur_ret": -3.68,
+   "cur_ret": 1.54,
    "status": "active",
    "c0": 51.33,
-   "days_held": 1,
+   "days_held": 2,
    "name": "西部超导",
    "industry": "高端制造",
    "sector": null
@@ -2624,10 +2624,10 @@
     "60": null
    },
    "win20": null,
-   "cur_ret": -7.68,
+   "cur_ret": -8.21,
    "status": "active",
    "c0": 42.99,
-   "days_held": 1,
+   "days_held": 2,
    "name": "莱特光电",
    "industry": "半导体",
    "sector": null
@@ -2645,10 +2645,10 @@
     "60": null
    },
    "win20": null,
-   "cur_ret": -3.29,
+   "cur_ret": -4.32,
    "status": "active",
    "c0": 213.56,
-   "days_held": 1,
+   "days_held": 2,
    "name": "峰岹科技",
    "industry": "半导体",
    "sector": null
@@ -2912,16 +2912,16 @@
     "待确认观察"
    ],
    "ret": {
-    "1": null,
+    "1": 0.91,
     "5": null,
     "20": null,
     "60": null
    },
    "win20": null,
-   "cur_ret": null,
+   "cur_ret": 0.91,
    "status": "active",
    "c0": 90.0,
-   "days_held": null,
+   "days_held": 1,
    "name": "恒立液压",
    "industry": "高端制造",
    "sector": null
@@ -2996,16 +2996,16 @@
     "待确认观察"
    ],
    "ret": {
-    "1": null,
+    "1": 0.13,
     "5": null,
     "20": null,
     "60": null
    },
    "win20": null,
-   "cur_ret": null,
+   "cur_ret": 0.13,
    "status": "active",
    "c0": 340.18,
-   "days_held": null,
+   "days_held": 1,
    "name": "芯源微",
    "industry": "半导体",
    "sector": null
@@ -3038,16 +3038,16 @@
     "待确认观察"
    ],
    "ret": {
-    "1": null,
+    "1": -1.07,
     "5": null,
     "20": null,
     "60": null
    },
    "win20": null,
-   "cur_ret": null,
+   "cur_ret": -1.07,
    "status": "active",
    "c0": 206.53,
-   "days_held": null,
+   "days_held": 1,
    "name": "峰岹科技",
    "industry": "半导体",
    "sector": null
@@ -3101,16 +3101,16 @@
     "待确认观察"
    ],
    "ret": {
-    "1": null,
+    "1": -1.62,
     "5": null,
     "20": null,
     "60": null
    },
    "win20": null,
-   "cur_ret": null,
+   "cur_ret": -1.62,
    "status": "active",
    "c0": 110.54,
-   "days_held": null,
+   "days_held": 1,
    "name": "恒玄科技",
    "industry": "半导体",
    "sector": null
@@ -3159,27 +3159,6 @@
   },
   {
    "d0": "2026-09-29",
-   "code": "002881",
-   "lists": [
-    "待确认观察"
-   ],
-   "ret": {
-    "1": null,
-    "5": null,
-    "20": null,
-    "60": null
-   },
-   "win20": null,
-   "cur_ret": null,
-   "status": "active",
-   "c0": 41.95,
-   "days_held": null,
-   "name": "美格智能",
-   "industry": "通信",
-   "sector": null
-  },
-  {
-   "d0": "2026-09-29",
    "code": "300017",
    "lists": [
     "Jev深析首屏"
@@ -3197,6 +3176,27 @@
    "days_held": null,
    "name": "网宿科技",
    "industry": "通信",
+   "sector": null
+  },
+  {
+   "d0": "2026-09-29",
+   "code": "300223",
+   "lists": [
+    "待确认观察"
+   ],
+   "ret": {
+    "1": null,
+    "5": null,
+    "20": null,
+    "60": null
+   },
+   "win20": null,
+   "cur_ret": null,
+   "status": "active",
+   "c0": 134.6,
+   "days_held": null,
+   "name": "北京君正",
+   "industry": "半导体",
    "sector": null
   },
   {
@@ -3264,27 +3264,6 @@
   },
   {
    "d0": "2026-09-29",
-   "code": "300850",
-   "lists": [
-    "待确认观察"
-   ],
-   "ret": {
-    "1": null,
-    "5": null,
-    "20": null,
-    "60": null
-   },
-   "win20": null,
-   "cur_ret": null,
-   "status": "active",
-   "c0": 32.0,
-   "days_held": null,
-   "name": "新强联",
-   "industry": "高端制造",
-   "sector": null
-  },
-  {
-   "d0": "2026-09-29",
    "code": "300986",
    "lists": [
     "待确认观察"
@@ -3344,6 +3323,27 @@
    "days_held": null,
    "name": "招商银行",
    "industry": "金融",
+   "sector": null
+  },
+  {
+   "d0": "2026-09-29",
+   "code": "600183",
+   "lists": [
+    "待确认观察"
+   ],
+   "ret": {
+    "1": null,
+    "5": null,
+    "20": null,
+    "60": null
+   },
+   "win20": null,
+   "cur_ret": null,
+   "status": "active",
+   "c0": 132.98,
+   "days_held": null,
+   "name": "生益科技",
+   "industry": "通信",
    "sector": null
   },
   {
@@ -3432,7 +3432,7 @@
   },
   {
    "d0": "2026-09-29",
-   "code": "688037",
+   "code": "603400",
    "lists": [
     "待确认观察"
    ],
@@ -3443,8 +3443,8 @@
    "c0": null,
    "days_held": null,
    "note": "锚日无收盘（停牌/日线缺该日），无法起算",
-   "name": "芯源微",
-   "industry": "半导体",
+   "name": "华之杰",
+   "industry": "高端制造",
    "sector": null
   },
   {
@@ -3491,7 +3491,7 @@
   },
   {
    "d0": "2026-09-29",
-   "code": "688690",
+   "code": "688608",
    "lists": [
     "待确认观察"
    ],
@@ -3504,10 +3504,10 @@
    "win20": null,
    "cur_ret": null,
    "status": "active",
-   "c0": 45.28,
+   "c0": 108.75,
    "days_held": null,
-   "name": "纳微科技",
-   "industry": "医药",
+   "name": "恒玄科技",
+   "industry": "半导体",
    "sector": null
   },
   {
