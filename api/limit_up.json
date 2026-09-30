@@ -1,37 +1,17 @@
 [
   {
-    "code": "002913",
-    "name": "奥士康",
-    "industry": "通信"
+    "code": "603127",
+    "name": "昭衍新药",
+    "industry": "创新药"
   },
   {
-    "code": "603328",
-    "name": "依顿电子",
-    "industry": "通信"
+    "code": "688185",
+    "name": "康希诺",
+    "industry": "创新药"
   },
   {
-    "code": "002815",
-    "name": "崇达技术",
-    "industry": "通信"
-  },
-  {
-    "code": "000823",
-    "name": "超声电子",
-    "industry": "通信"
-  },
-  {
-    "code": "600488",
-    "name": "津药药业",
-    "industry": "医药"
-  },
-  {
-    "code": "002882",
-    "name": "金龙羽",
-    "industry": "高端制造"
-  },
-  {
-    "code": "603400",
-    "name": "华之杰",
-    "industry": "高端制造"
+    "code": "603538",
+    "name": "美诺华",
+    "industry": "创新药"
   }
 ]
