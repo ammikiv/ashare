@@ -1,8 +1,58 @@
 [
   {
+    "code": "301190",
+    "name": "善水科技",
+    "industry": ""
+  },
+  {
+    "code": "301218",
+    "name": "华是科技",
+    "industry": ""
+  },
+  {
+    "code": "000678",
+    "name": "襄阳轴承",
+    "industry": ""
+  },
+  {
+    "code": "002242",
+    "name": "九阳股份",
+    "industry": ""
+  },
+  {
+    "code": "000011",
+    "name": "深物业A",
+    "industry": ""
+  },
+  {
+    "code": "688137",
+    "name": "近岸蛋白",
+    "industry": ""
+  },
+  {
     "code": "688185",
     "name": "康希诺",
     "industry": "创新药"
+  },
+  {
+    "code": "688265",
+    "name": "南模生物",
+    "industry": ""
+  },
+  {
+    "code": "002244",
+    "name": "滨江集团",
+    "industry": ""
+  },
+  {
+    "code": "002962",
+    "name": "五方光电",
+    "industry": ""
+  },
+  {
+    "code": "600418",
+    "name": "江淮汽车",
+    "industry": ""
   },
   {
     "code": "002487",
@@ -10,9 +60,19 @@
     "industry": "高端制造"
   },
   {
+    "code": "688152",
+    "name": "麒麟信安",
+    "industry": ""
+  },
+  {
     "code": "002882",
     "name": "金龙羽",
     "industry": "高端制造"
+  },
+  {
+    "code": "605366",
+    "name": "宏柏新材",
+    "industry": ""
   },
   {
     "code": "688356",
@@ -20,9 +80,34 @@
     "industry": "创新药"
   },
   {
+    "code": "605011",
+    "name": "XD杭州热",
+    "industry": ""
+  },
+  {
+    "code": "301310",
+    "name": "鑫宏业",
+    "industry": ""
+  },
+  {
+    "code": "000980",
+    "name": "众泰汽车",
+    "industry": ""
+  },
+  {
     "code": "301234",
     "name": "五洲医疗",
     "industry": "医药"
+  },
+  {
+    "code": "603657",
+    "name": "春光科技",
+    "industry": ""
+  },
+  {
+    "code": "300917",
+    "name": "特发服务",
+    "industry": ""
   },
   {
     "code": "000739",
@@ -30,9 +115,24 @@
     "industry": "创新药"
   },
   {
+    "code": "300207",
+    "name": "欣旺达",
+    "industry": ""
+  },
+  {
+    "code": "600121",
+    "name": "郑州煤电",
+    "industry": ""
+  },
+  {
     "code": "300850",
     "name": "新强联",
     "industry": "高端制造"
+  },
+  {
+    "code": "600733",
+    "name": "北汽蓝谷",
+    "industry": ""
   },
   {
     "code": "000400",
@@ -50,14 +150,54 @@
     "industry": "高端制造"
   },
   {
+    "code": "000069",
+    "name": "华侨城Ａ",
+    "industry": ""
+  },
+  {
     "code": "688578",
     "name": "艾力斯",
     "industry": "创新药"
   },
   {
+    "code": "300182",
+    "name": "捷成股份",
+    "industry": ""
+  },
+  {
+    "code": "002773",
+    "name": "康弘药业",
+    "industry": ""
+  },
+  {
+    "code": "300690",
+    "name": "双一科技",
+    "industry": ""
+  },
+  {
+    "code": "000963",
+    "name": "华东医药",
+    "industry": ""
+  },
+  {
+    "code": "002708",
+    "name": "光洋股份",
+    "industry": ""
+  },
+  {
+    "code": "002840",
+    "name": "华统股份",
+    "industry": ""
+  },
+  {
     "code": "688336",
     "name": "三生国健",
     "industry": "创新药"
+  },
+  {
+    "code": "001979",
+    "name": "招商蛇口",
+    "industry": ""
   },
   {
     "code": "300832",
@@ -70,14 +210,29 @@
     "industry": "创新药"
   },
   {
-    "code": "600196",
-    "name": "复星医药",
-    "industry": "创新药"
+    "code": "300647",
+    "name": "超频三",
+    "industry": ""
   },
   {
-    "code": "300760",
-    "name": "迈瑞医疗",
-    "industry": "医药"
+    "code": "600617",
+    "name": "国新能源",
+    "industry": ""
+  },
+  {
+    "code": "000756",
+    "name": "新华制药",
+    "industry": ""
+  },
+  {
+    "code": "002714",
+    "name": "牧原股份",
+    "industry": ""
+  },
+  {
+    "code": "300443",
+    "name": "金雷股份",
+    "industry": ""
   },
   {
     "code": "600301",
@@ -85,9 +240,54 @@
     "industry": "有色金属"
   },
   {
+    "code": "600011",
+    "name": "华能国际",
+    "industry": ""
+  },
+  {
+    "code": "002553",
+    "name": "南方精工",
+    "industry": ""
+  },
+  {
+    "code": "000006",
+    "name": "深振业Ａ",
+    "industry": ""
+  },
+  {
+    "code": "301262",
+    "name": "海看股份",
+    "industry": ""
+  },
+  {
+    "code": "000572",
+    "name": "海马汽车",
+    "industry": ""
+  },
+  {
+    "code": "600640",
+    "name": "国脉文化",
+    "industry": ""
+  },
+  {
     "code": "301211",
     "name": "亨迪药业",
     "industry": "医药"
+  },
+  {
+    "code": "600048",
+    "name": "保利发展",
+    "industry": ""
+  },
+  {
+    "code": "301333",
+    "name": "诺思格",
+    "industry": ""
+  },
+  {
+    "code": "603233",
+    "name": "大参林",
+    "industry": ""
   },
   {
     "code": "603392",
@@ -95,9 +295,89 @@
     "industry": "医药"
   },
   {
+    "code": "688139",
+    "name": "海尔生物",
+    "industry": ""
+  },
+  {
+    "code": "603507",
+    "name": "振江股份",
+    "industry": ""
+  },
+  {
+    "code": "603477",
+    "name": "巨星农牧",
+    "industry": ""
+  },
+  {
+    "code": "002793",
+    "name": "罗欣药业",
+    "industry": ""
+  },
+  {
+    "code": "600686",
+    "name": "金龙汽车",
+    "industry": ""
+  },
+  {
     "code": "002617",
     "name": "露笑科技",
     "industry": "有色金属"
+  },
+  {
+    "code": "603345",
+    "name": "安井食品",
+    "industry": ""
+  },
+  {
+    "code": "600282",
+    "name": "南钢股份",
+    "industry": ""
+  },
+  {
+    "code": "002703",
+    "name": "浙江世宝",
+    "industry": ""
+  },
+  {
+    "code": "300300",
+    "name": "海峡创新",
+    "industry": ""
+  },
+  {
+    "code": "600521",
+    "name": "华海药业",
+    "industry": ""
+  },
+  {
+    "code": "600066",
+    "name": "宇通客车",
+    "industry": ""
+  },
+  {
+    "code": "000989",
+    "name": "九芝堂",
+    "industry": ""
+  },
+  {
+    "code": "601155",
+    "name": "新城控股",
+    "industry": ""
+  },
+  {
+    "code": "688575",
+    "name": "亚辉龙",
+    "industry": ""
+  },
+  {
+    "code": "000037",
+    "name": "深南电A",
+    "industry": ""
+  },
+  {
+    "code": "600609",
+    "name": "金杯汽车",
+    "industry": ""
   },
   {
     "code": "605117",
@@ -105,14 +385,49 @@
     "industry": "高端制造"
   },
   {
-    "code": "601398",
-    "name": "工商银行",
-    "industry": "金融"
+    "code": "000966",
+    "name": "长源电力",
+    "industry": ""
   },
   {
-    "code": "601988",
-    "name": "中国银行",
-    "industry": "金融"
+    "code": "000729",
+    "name": "燕京啤酒",
+    "industry": ""
+  },
+  {
+    "code": "300181",
+    "name": "佐力药业",
+    "industry": ""
+  },
+  {
+    "code": "000025",
+    "name": "特 力Ａ",
+    "industry": ""
+  },
+  {
+    "code": "002219",
+    "name": "新里程",
+    "industry": ""
+  },
+  {
+    "code": "603391",
+    "name": "力聚热能",
+    "industry": ""
+  },
+  {
+    "code": "000027",
+    "name": "深圳能源",
+    "industry": ""
+  },
+  {
+    "code": "000921",
+    "name": "海信家电",
+    "industry": ""
+  },
+  {
+    "code": "600583",
+    "name": "海油工程",
+    "industry": ""
   },
   {
     "code": "600316",
@@ -120,18 +435,63 @@
     "industry": "高端制造"
   },
   {
+    "code": "600075",
+    "name": "新疆天业",
+    "industry": ""
+  },
+  {
+    "code": "601127",
+    "name": "赛力斯",
+    "industry": ""
+  },
+  {
+    "code": "600060",
+    "name": "海信视像",
+    "industry": ""
+  },
+  {
     "code": "688506",
     "name": "百利天恒",
     "industry": "创新药"
   },
   {
-    "code": "601939",
-    "name": "建设银行",
-    "industry": "金融"
+    "code": "000899",
+    "name": "赣能股份",
+    "industry": ""
+  },
+  {
+    "code": "601015",
+    "name": "陕西黑猫",
+    "industry": ""
+  },
+  {
+    "code": "000601",
+    "name": "韶能股份",
+    "industry": ""
+  },
+  {
+    "code": "600644",
+    "name": "乐山电力",
+    "industry": ""
+  },
+  {
+    "code": "600989",
+    "name": "宝丰能源",
+    "industry": ""
   },
   {
     "code": "600885",
     "name": "宏发股份",
     "industry": "高端制造"
+  },
+  {
+    "code": "601016",
+    "name": "节能风电",
+    "industry": ""
+  },
+  {
+    "code": "603993",
+    "name": "洛阳钼业",
+    "industry": ""
   }
 ]
