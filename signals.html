@@ -42,6 +42,28 @@ h1{font-size:20px;margin:0 0 4px;font-weight:600}
 .kpi span{font-size:12px;color:var(--mut)}
 .kpi small{display:block;font-size:11px;color:var(--mut);margin-top:2px}
 .kpi.hot{border-color:#e7b8b3;background:var(--redbg)} .kpi.hot b{color:var(--red)}
+/* ── 板块强弱榜（2026-10-01 加）：KPI 下方，主条 = 共振率（规模归一），点击行联动板块筛选 ── */
+.indboard{margin-top:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+.indboard .ibhead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.indboard .ibhead b{font-size:14px}
+.indboard .ibhead .ibhint{font-size:11px;color:var(--mut)}
+.indboard .ibhead .mini{margin-left:auto;display:inline-flex;gap:6px}
+.indboard .mini button{font:inherit;font-size:11px;padding:3px 8px;border:1px solid var(--line);
+  background:var(--card);border-radius:8px;color:var(--mut);cursor:pointer}
+.indboard .mini button:hover{border-color:var(--brand);color:var(--ink)}
+.indboard .mini button.on{border-color:var(--brand);background:#eef2f7;color:var(--ink)}
+.ibrow{display:flex;align-items:center;gap:8px;padding:3px 4px;border-radius:8px;cursor:pointer}
+.ibrow:hover{background:#f3f5f8}
+.ibrow.sel{background:#eef2f7;outline:1px solid var(--brand)}
+.ibrow .ibname{flex:0 0 88px;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ibrow .ibbar{flex:1;height:13px;background:#eef0f3;border-radius:4px;position:relative;overflow:hidden}
+.ibrow .ibbar i{position:absolute;top:0;bottom:0;left:0;border-radius:4px;min-width:2px}
+.ibrow .ibval{flex:0 0 150px;font-size:11px;color:var(--mut);white-space:nowrap;text-align:right}
+.ibrow .ibval b{color:var(--ink);font-size:12px}
+@media (max-width:640px){
+  .ibrow .ibname{flex-basis:72px}
+  .ibrow .ibval{flex-basis:118px}
+}
 
 /* ---- 面板 / 工具栏 ---- */
 .panel{background:var(--card);border:1px solid var(--line);border-radius:12px;
@@ -161,6 +183,7 @@ tbody tr.res:hover td{background:#fbe6e3}
   <h1>跨类技术共振看板 <span style="font-weight:400;font-size:15px">· 数据日 2026-09-30</span></h1>
   <div class="sub" id="sub"></div>
   <div class="kpis" id="kpis"></div>
+  <div class="indboard" id="indboard"></div>
   <div class="panel">
     <div class="toolbar">
       <div class="tgroup"><span class="tlabel">范围</span>
@@ -234,8 +257,13 @@ let view = 'cls', sortK = null, sortDir = -1, clsAll = new Set(D.classes.map(c =
 const indOf = x => x.ind || '未标注';
 const IND = (() => {
   const m = new Map();
-  D.stocks.forEach(x => { const k = indOf(x), o = m.get(k) || {n:0, r:0}; o.n++; if (x.r) o.r++; m.set(k, o); });
-  return [...m.entries()].sort((a, b) => b[1].n - a[1].n || a[0].localeCompare(b[0], 'zh'));
+  D.stocks.forEach(x => { const k = indOf(x), o = m.get(k) || {n:0, r:0, kSum:0};
+    o.n++; if (x.r){ o.r++; o.kSum += (x.k || 0); } m.set(k, o); });
+  const arr = [...m.entries()];
+  /* 共振票平均命中类数（kAvg）：板块「强度」的第二个维度 —— 83 只共振但全是压线 2 类，
+     和 27 只共振、平均 3.8 类，强的不一样。r=0 的板块 kAvg=0。 */
+  arr.forEach(e => e[1].kAvg = e[1].r ? e[1].kSum / e[1].r : 0);
+  return arr.sort((a, b) => b[1].n - a[1].n || a[0].localeCompare(b[0], 'zh'));
 })();
 let indAll = new Set(IND.map(e => e[0]));   /* 初始全选 ⇒ 等价于「不过滤」（与类别 chips 同语义） */
 
@@ -257,7 +285,7 @@ const sel = () => ({
 /* ---------- 静态区 ---------- */
 document.title = '跨类技术共振看板 · ' + D.asof;
 document.getElementById('sub').textContent =
-  `池 ${D.pool}${D.pool_tag ? ' ' + D.pool_tag : ''}（有效 ${D.pool_valid} 只）· 共振口径 = 命中类别 ≥ ${D.min_classes}（同族凑数不算共振）· 生成 2026-10-01 13:15`;
+  `池 ${D.pool}${D.pool_tag ? ' ' + D.pool_tag : ''}（有效 ${D.pool_valid} 只）· 共振口径 = 命中类别 ≥ ${D.min_classes}（同族凑数不算共振）· 生成 2026-10-01 13:35`;
 const rate = D.counts.resonance / D.pool_valid * 100;
 document.getElementById('kpis').innerHTML =
   `<div class="kpi hot"><b>${D.counts.resonance}</b><span>共振（≥${D.min_classes} 类）</span>
@@ -316,6 +344,56 @@ document.getElementById('indq').oninput = e => {
   });
   document.getElementById('indEmpty').style.display = show ? 'none' : 'block';
 };
+/* ---------- 板块强弱榜（KPI 下方） ----------
+   两个口径分清、不混：
+   · 强度 = 共振率 r/n（规模归一）—— 主条长度，绝对 0–100%，跨板块直接可比；
+   · 广度 = 共振数 r（受板块规模影响）—— 「按广度」按钮切换排序。
+   点击行 = 只看该板块（联动 #indBtn/indAll），再点同一行还原全选。
+   颜色分级（红=强）：≥30% 红 / 10–30% 橙 / <10% 灰 —— 中国市场口径红=强。 */
+let ibSort = 'rate';      /* 'rate'=强度 | 'n'=广度 */
+let ibExpand = false;     /* 默认 Top 8，可展开全部 */
+const IB_TOP = 8;
+
+function renderIndBoard(){
+  const el = document.getElementById('indboard');
+  if (!el) return;
+  const rows = IND.map(e => ({name: e[0], n: e[1].n, r: e[1].r, kAvg: e[1].kAvg}));
+  rows.sort(ibSort === 'rate'
+    ? (a, b) => (b.r / b.n) - (a.r / a.n) || b.r - a.r || a.name.localeCompare(b.name, 'zh')
+    : (a, b) => b.r - a.r || (b.r / b.n) - (a.r / a.n) || a.name.localeCompare(b.name, 'zh'));
+  const shown = rows.slice(0, ibExpand ? rows.length : IB_TOP);
+  el.innerHTML = `
+    <div class="ibhead"><b>板块强弱</b>
+      <span class="ibhint">主条 = 共振率（共振 r ÷ 板块 n，绝对 0–100%）· 点击行只看该板块、再点还原</span>
+      <span class="mini">
+        <button type="button" data-ib="rate" class="${ibSort === 'rate' ? 'on' : ''}">按强度（率）</button>
+        <button type="button" data-ib="n" class="${ibSort === 'n' ? 'on' : ''}">按广度（数）</button>
+        <button type="button" data-ib="more">${ibExpand ? '收起' : `展开全部 ${rows.length} 个板块`}</button>
+      </span></div>
+    ${shown.map(x => {
+      const pct = x.n ? x.r / x.n * 100 : 0;
+      const col = pct >= 30 ? 'var(--red)' : pct >= 10 ? '#d98a3d' : '#9aa7b5';
+      const isSel = indAll.size === 1 && indAll.has(x.name);
+      return `<div class="ibrow${isSel ? ' sel' : ''}" data-ind="${x.name}"
+        title="${x.name}：共振 ${x.r}/${x.n}（${pct.toFixed(1)}%）${x.r ? `，共振票平均命中 ${x.kAvg.toFixed(1)} 类` : ''}">
+        <span class="ibname">${x.name}</span>
+        <span class="ibbar"><i style="width:${Math.max(pct, 1.2)}%;background:${col}"></i></span>
+        <span class="ibval"><b>${x.r}</b>/${x.n} · ${pct.toFixed(1)}%${x.r ? ` · 均 ${x.kAvg.toFixed(1)} 类` : ''}</span>
+      </div>`;
+    }).join('')}`;
+  el.querySelectorAll('[data-ib]').forEach(b => b.onclick = () => {
+    if (b.dataset.ib === 'more') ibExpand = !ibExpand; else ibSort = b.dataset.ib;
+    renderIndBoard();
+  });
+  el.querySelectorAll('.ibrow').forEach(rw => rw.onclick = () => {
+    const nm = rw.dataset.ind;
+    indAll = (indAll.size === 1 && indAll.has(nm))
+      ? new Set(IND.map(e => e[0]))     /* 再点还原 = 不过滤 */
+      : new Set([nm]);
+    syncInd();
+  });
+}
+
 function syncInd(){
   const ks = IND.map(e => e[0]).filter(k => indAll.has(k));
   indBtn.textContent = ks.length === IND.length ? `全部 ${IND.length} 个板块 ▾`
@@ -325,6 +403,7 @@ function syncInd(){
   document.getElementById('indfoot').textContent =
     `当前勾选覆盖 ${D.stocks.filter(x => ks.length === 0 || indAll.has(indOf(x))).length} 只（池共 ${D.pool_valid} 只）`
     + (ks.length ? `，其中共振 ${D.stocks.filter(x => (ks.length === 0 || indAll.has(indOf(x))) && x.r).length} 只` : '');
+  renderIndBoard();   /* 榜单高亮必须跟着筛选状态走（点行/面板勾选两条路都要同步） */
   render();
 }
 indBtn.onclick = () => {
