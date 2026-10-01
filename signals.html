@@ -5,68 +5,163 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>跨类技术共振看板 · 2026-09-30</title>
 <style>
-:root{--ink:#1f2430;--mut:#6b7280;--line:#e5e7eb;--bg:#f7f7f5;--card:#fff;
---red:#c0392b;--redbg:#fdf1f0;--gray:#b9bdc4;}
+:root{
+  --ink:#1f2430;--mut:#6b7280;--line:#e5e7eb;--bg:#f6f7f9;--card:#fff;
+  --brand:#1F3B57;--brand2:#2A4A6B;
+  --red:#c0392b;--redbg:#fdf1f0;--gray:#b9bdc4;
+  --navh:52px;
+}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);padding-top:calc(var(--navh) + 18px);
 font:14px/1.6 -apple-system,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif}
-.wrap{max-width:1240px;margin:0 auto;padding:28px 20px 60px}
-h1{font-size:20px;margin:0 0 4px;font-weight:600}
-.sub{color:var(--mut);font-size:13px;margin-bottom:18px}
-.kpis{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;
-padding:10px 16px;min-width:110px}
-.kpi b{display:block;font-size:22px;font-weight:600}
-.kpi span{font-size:12px;color:var(--mut)}
-.kpi.hot{border-color:#e7b8b3;background:var(--redbg)} .kpi.hot b{color:var(--red)}
-.legend{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
-.chip{border:1px solid var(--line);border-radius:8px;background:var(--card);
-padding:5px 10px;font-size:12px}
-.chip i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px}
-.chip em{font-style:normal;color:var(--mut);margin-left:4px}
-.bar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-bottom:12px;font-size:13px}
-.bar label{cursor:pointer}
-.bar input[type=search]{padding:5px 10px;border:1px solid var(--line);border-radius:8px;width:200px;font:inherit}
-.count{color:var(--mut)}
-table{width:100%;border-collapse:collapse;background:var(--card);
-border:1px solid var(--line);border-radius:10px;overflow:hidden}
-th,td{padding:7px 10px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap}
-th{background:#f0efec;font-size:12px;font-weight:600;cursor:default}
-th.grp{font-size:11px;padding:4px}
-td.ind{color:var(--mut);font-size:12px}
-td.l{padding:7px 10px}
-tbody tr.res{background:var(--redbg)}
-tbody tr:hover{background:#f3f4f6}
 a{color:inherit;text-decoration:none;border-bottom:1px dotted #758193}
+a.nobd{border-bottom:none}
+
+/* ---- 顶部导航（与站点其他页同一套） ---- */
+.topnav{position:fixed;top:0;left:0;right:0;z-index:200;
+  height:var(--navh);display:flex;align-items:center;justify-content:space-between;
+  padding:0 20px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff}
+.topnav .logo{font-size:15px;font-weight:700}
+.topnav .links{display:flex;gap:4px;overflow:auto;scrollbar-width:none}
+.topnav .links::-webkit-scrollbar{display:none}
+.topnav .links a{color:#fff;border:none;font-size:13px;opacity:.72;
+  padding:5px 11px;border-radius:7px;white-space:nowrap;background:transparent}
+.topnav .links a:hover{opacity:.95;background:rgba(255,255,255,.12)}
+.topnav .links a.on{opacity:1;background:rgba(255,255,255,.2);font-weight:600}
+
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px 56px}
+h1{font-size:20px;margin:0 0 4px;font-weight:600}
+.sub{color:var(--mut);font-size:13px;margin-bottom:16px}
+
+/* ---- KPI ---- */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:12px;margin-bottom:14px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+.kpi b{display:block;font-size:24px;font-weight:600;line-height:1.25}
+.kpi span{font-size:12px;color:var(--mut)}
+.kpi small{display:block;font-size:11px;color:var(--mut);margin-top:2px}
+.kpi.hot{border-color:#e7b8b3;background:var(--redbg)} .kpi.hot b{color:var(--red)}
+
+/* ---- 面板 / 工具栏 ---- */
+.panel{background:var(--card);border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px;margin-bottom:14px}
+.toolbar{display:flex;gap:16px;align-items:center;flex-wrap:wrap;font-size:13px}
+.tgroup{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.tlabel{color:var(--mut)}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);
+  border-radius:999px;background:#fff;padding:5px 11px;font-size:12px;cursor:pointer;
+  user-select:none;transition:background .12s,border-color .12s}
+.chip i{display:inline-block;width:9px;height:9px;border-radius:3px}
+.chip em{font-style:normal;color:var(--mut)}
+.chip.on{border-color:var(--brand);background:#eef2f7}
+.chip.on em{color:var(--ink);font-weight:600}
+.chip:not(.on){opacity:.6}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg label{position:relative;padding:5px 10px;font-size:12px;cursor:pointer;border-right:1px solid var(--line)}
+.seg label:last-child{border-right:none}
+/* 不用 :has()/display:none —— 选中态挂在「紧邻 span」上，老浏览器也能看见 */
+.seg input{position:absolute;left:0;top:0;width:1px;height:1px;opacity:0;margin:0}
+.seg input:checked + span{background:var(--brand);color:#fff;border-radius:6px;padding:5px 9px}
+input[type=search]{padding:6px 10px;border:1px solid var(--line);border-radius:8px;
+  width:190px;font:inherit;font-size:13px}
+.count{color:var(--mut);margin-left:auto}
+
+/* ---- 表 ---- */
+.tabs{display:flex;gap:6px;margin:12px 0 0}
+.tab{font-size:12px;padding:5px 12px;border:1px solid var(--line);border-radius:8px;
+  cursor:pointer;background:#fff}
+.tab.on{background:var(--brand);border-color:var(--brand);color:#fff}
+.tblwrap{border:1px solid var(--line);border-radius:12px;overflow:auto;max-height:74vh}
+/* 宽屏且表格装得下 ⇒ 拆掉滚动容器，表格随整页滚动（不再“表格在盒子里滚”）。
+   表头此时相对视口吸顶，必须让开固定导航（.topnav 52px），否则整条表头被盖住。 */
+.tblwrap.flush{overflow:visible;max-height:none;border:none;border-radius:0}
+.tblwrap.flush thead th{top:var(--navh)}
+table{border-collapse:separate;border-spacing:0;width:100%;font-size:13px}
+th,td{padding:8px 10px;text-align:center;white-space:nowrap;border-bottom:1px solid var(--line)}
+thead th{position:sticky;top:0;z-index:3;background:#eef0f3;font-size:12px;font-weight:600;
+  color:#374151;box-shadow:inset 0 -1px 0 var(--line)}
+th.s{cursor:pointer} th.s::after{content:" ⇅";opacity:.35;font-size:11px}
+th.s.asc::after{content:" ↑";opacity:1} th.s.desc::after{content:" ↓";opacity:1}
+th.grpcls{font-size:11px;padding:5px 6px;border-left:1px solid #d7dbe0}
+.warn{margin:10px 0 0;padding:8px 12px;border-radius:8px;background:#fdecea;
+  border:1px solid #f3c2bc;color:#8a2b1e;font-size:12px;font-weight:600}
+tbody td{border-left:1px solid #f1f2f4}
+tbody td.ind{color:var(--mut);font-size:12px}
+tbody td.l{text-align:left}
+tbody tr.res td{background:var(--redbg)}
+tbody tr:hover td{background:#f3f5f7}
+tbody tr.res:hover td{background:#fbe6e3}
 .up{color:var(--red);font-weight:700}
 .no{color:var(--gray)}
 .na{color:var(--gray);font-style:italic}
 .k{font-weight:600}
-button.sort{all:unset;cursor:pointer;font-weight:600}
-.note{margin-top:16px;font-size:12px;color:var(--mut);line-height:1.8}
-.note code{background:#efeeeb;padding:1px 5px;border-radius:4px}
+.mid{font-weight:600}
+.cap{display:inline-block;padding:1px 7px;border-radius:6px;font-size:12px;
+  border:1px solid transparent}
+.legend{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 12px;font-size:12px;color:var(--mut)}
+.note{margin-top:14px;font-size:12px;color:var(--mut);line-height:1.85}
+.note code{background:#eef0f3;padding:1px 5px;border-radius:4px}
+.note b{color:#374151}
+
+@media (max-width:820px){
+  .wrap{padding:0 12px 40px}
+  .topnav{padding:0 12px}
+  .topnav .logo{font-size:14px}
+  .toolbar{gap:10px}
+  input[type=search]{width:100%}
+  .count{margin-left:0}
+  .tblwrap{max-height:70vh}
+  th,td{padding:7px 8px}
+}
 </style>
 </head>
 <body>
+<nav class="topnav">
+  <div class="logo">📊 信号共振</div>
+  <div class="links">
+    <a href="index.html">报告 ↗</a>
+    <a href="list.html">全池 ↗</a>
+    <a href="tracker.html">跟踪 ↗</a>
+    <a href="big.html">大盘版 ↗</a>
+    <a href="signals.html" class="on">信号共振</a>
+  </div>
+</nav>
 <div class="wrap">
   <h1>跨类技术共振看板 <span style="font-weight:400;font-size:15px">· 数据日 2026-09-30</span></h1>
   <div class="sub" id="sub"></div>
   <div class="kpis" id="kpis"></div>
+  <div class="panel">
+    <div class="toolbar">
+      <div class="tgroup"><span class="tlabel">范围</span>
+        <span class="seg" id="scopeSeg">
+          <label><input type="radio" name="scope" value="res" checked><span>仅共振</span></label>
+          <label><input type="radio" name="scope" value="any"><span>已触发</span></label>
+          <label><input type="radio" name="scope" value="all"><span>全部账本</span></label>
+        </span>
+      </div>
+      <div class="tgroup"><span class="tlabel">类别</span><span id="clsChips"></span></div>
+      <div class="tgroup">
+        <span class="seg" id="modeSeg">
+          <label><input type="radio" name="mode" value="any" checked><span>任一命中</span></label>
+          <label><input type="radio" name="mode" value="all"><span>全部命中</span></label>
+        </span>
+      </div>
+      <input type="search" id="q" placeholder="搜代码 / 名称">
+      <span class="count" id="count"></span>
+    </div>
+    <div class="tabs" id="tabs"></div>
+  </div>
+  <div class="warn" id="colwarn" style="display:none"></div>
+  <div class="warn" id="fitwarn" style="display:none"></div>
+  <div class="warn" id="sortwarn" style="display:none"></div>
+  <div class="tblwrap" id="tblwrap">
+    <table id="tbl">
+      <thead id="thead"></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+  </div>
   <div class="legend" id="legend"></div>
-  <div class="bar">
-    <b>范围：</b>
-    <label><input type="radio" name="scope" value="res" checked> 仅共振</label>
-    <label><input type="radio" name="scope" value="all"> 全部账本</label>
-    &nbsp;<b>要求命中类别：</b><span id="clsFilters"></span>
-    &nbsp;<input type="search" id="q" placeholder="搜代码 / 名称">
-    <span class="count" id="count"></span>
-  </div>
-  <div style="overflow:auto">
-  <table id="tbl">
-    <thead id="thead"></thead>
-    <tbody id="tbody"></tbody>
-  </table>
-  </div>
   <div class="note" id="note"></div>
 </div>
 <script>
@@ -76,90 +171,236 @@ const exch = c => ['60','68','69','90'].includes(c.slice(0,2)) ? 'SH'
                  : ['43','83','87','88','92'].includes(c.slice(0,2)) ? 'BJ' : 'SZ';
 const clsColor = {trend:'#378ADD', volume:'#EF9F27', form:'#1D9E75', momentum:'#7F77DD', sentiment:'#D85A30'};
 const sigByKey = {}; D.signals.forEach(s => sigByKey[s.key] = s);
+const clsByKey = {}; D.classes.forEach(c => clsByKey[c.key] = c);
 
-/* ---- 静态区 ---- */
+let view = 'cls', sortK = null, sortDir = -1, clsAll = new Set(D.classes.map(c => c.key));
+
+/* 固定列随时可排；cls:/sig: 列只存在于各自视图 ⇒ 切视图时必须清掉悬空的排序键，
+   否则行顺序继续按旧视图那列排，而表头上根本找不到该列（静默错排，没人看得出来）。 */
+const BASIC = ['c', 'n', 'ind', 'k', 's'];
+const keyOK = () => view === 'cls'
+  ? (BASIC.includes(sortK) || String(sortK).startsWith('cls:'))
+  : (BASIC.includes(sortK) || String(sortK).startsWith('sig:'));
+
+const sel = () => ({
+  scope: document.querySelector('input[name=scope]:checked').value,
+  mode:  document.querySelector('input[name=mode]:checked').value,
+  q: document.getElementById('q').value.trim(),
+  cls: [...clsAll]
+});
+
+/* ---------- 静态区 ---------- */
 document.title = '跨类技术共振看板 · ' + D.asof;
 document.getElementById('sub').textContent =
-  `池 ${D.pool}（有效 ${D.pool_valid} 只）· 共振口径 = 命中类别 ≥ ${D.min_classes}（同族凑数不算共振）· 生成 2026-09-30 17:50`;
+  `池 ${D.pool}（有效 ${D.pool_valid} 只）· 共振口径 = 命中类别 ≥ ${D.min_classes}（同族凑数不算共振）· 生成 2026-10-01 12:00`;
+const rate = D.counts.resonance / D.pool_valid * 100;
 document.getElementById('kpis').innerHTML =
-  `<div class="kpi hot"><b>${D.counts.resonance}</b><span>共振（≥${D.min_classes} 类）</span></div>
-   <div class="kpi"><b>${D.counts.single}</b><span>单类触发</span></div>
-   <div class="kpi"><b>${D.counts.zero}</b><span>零类（未命中为主）</span></div>
-   <div class="kpi"><b>${D.counts.insufficient}</b><span>全部数据不足</span></div>
-   <div class="kpi"><b>${D.pool_valid}</b><span>池有效合计</span></div>`;
+  `<div class="kpi hot"><b>${D.counts.resonance}</b><span>共振（≥${D.min_classes} 类）</span>
+     <small>占池 ${rate.toFixed(1)}%</small></div>
+   <div class="kpi"><b>${D.counts.single}</b><span>单类触发</span><small>命中 1 个类别</small></div>
+   <div class="kpi"><b>${D.counts.zero}</b><span>零类（未命中为主）</span><small>未触发任何类别</small></div>
+   <div class="kpi"><b>${D.counts.insufficient}</b><span>全部数据不足</span><small>未判定，不计入未命中</small></div>
+   <div class="kpi"><b>${D.pool_valid}</b><span>池有效合计</span><small>= 前四项之和</small></div>`;
 document.getElementById('legend').innerHTML =
-  D.classes.map(c => `<span class="chip"><i style="background:${clsColor[c.key]}"></i>${c.label}类`
-    + c.sigs.map(k => { const s = sigByKey[k];
-        return `<em title="${esc(s.desc)}">${s.label} ${s.n}</em>`; }).join('')
-    + `</span>`).join('');
+  `<span class="chip on"><i style="background:var(--red)"></i>✓ 命中<em>（悬停看明细值）</em></span>
+   <span class="chip on"><i style="background:var(--gray)"></i>✗ 判定未命中</span>
+   <span class="chip on"><i style="background:var(--gray)"></i>— 数据不足<em>（未判定，≠ 未命中）</em></span>
+   <span>表头任意列可点排序（点 ↑/↓ 的 ⇅ 切换方向）；类别色块：${D.classes.map(c =>
+     `<i style="display:inline-block;width:9px;height:9px;border-radius:3px;background:${clsColor[c.key]};margin:0 3px"></i>${c.label}`).join(' ')}</span>`;
 
-/* ---- 表头 ---- */
+document.getElementById('clsChips').innerHTML = D.classes.map(c =>
+  `<span class="chip on" data-cls="${c.key}"><i style="background:${clsColor[c.key]}"></i>${c.label}<em>${c.sigs.length} 个信号</em></span>`).join('');
+document.querySelectorAll('#clsChips .chip').forEach(el => el.onclick = () => {
+  const k = el.dataset.cls;
+  if (clsAll.has(k)) { clsAll.delete(k); el.classList.remove('on'); }
+  else { clsAll.add(k); el.classList.add('on'); }
+  render();
+});
+document.getElementById('tabs').innerHTML =
+  `<span class="tab on" data-view="cls">类视图（按 5 个类别）</span>
+   <span class="tab" data-view="sig">信号明细（按 14 个信号）</span>`;
+document.querySelectorAll('#tabs .tab').forEach(el => el.onclick = () => {
+  view = el.dataset.view;
+  if (sortK && !keyOK()) sortK = null;      /* 键在新视图不存在 ⇒ 直接回到默认顺序 */
+  document.querySelectorAll('#tabs .tab').forEach(t => t.classList.toggle('on', t === el));
+  render();
+});
+document.querySelectorAll('input[name=scope],input[name=mode]').forEach(i => i.onchange = render);
+document.getElementById('q').oninput = render;
+
+/* ---------- 表头（必须单行且列数与数据行一致，否则整表错位） ----------
+   cls 视图 = 5 固定列 + 每类 1 格 + 命中类别 1 格；
+   sig 视图 = 5 固定列 + 每信号 1 格。表头一旦多出子行（如按信号铺两行），
+   浏览器会把多出的 th 撑成新列，数据行就整体错位。ncol() 是唯一真相。 */
+function ncol(){ return 5 + (view === 'cls' ? D.classes.length + 1 : D.signals.length); }
 function thead(){
-  let g = `<tr><th rowspan="2" style="min-width:70px">代码</th><th rowspan="2">名称</th>
-    <th rowspan="2">板块</th><th rowspan="2"><button class="sort" data-k="k">类数</button></th>
-    <th rowspan="2"><button class="sort" data-k="s">信号数</button></th>`;
-  D.classes.forEach(c => g += `<th class="grp" colspan="${c.sigs.length}"
-      style="color:${clsColor[c.key]}">${c.label}</th>`);
-  g += `<th rowspan="2">命中类别</th></tr><tr>`;
-  D.classes.forEach(c => c.sigs.forEach(k =>
-    g += `<th title="${esc(sigByKey[k].desc)}">${sigByKey[k].label}<br><span style="font-weight:400;color:var(--mut)">${sigByKey[k].n}</span></th>`));
-  document.getElementById('thead').innerHTML = g + `</tr>`;
+  const sbtn = (k,label,extra='') => `<th class="s ${sortK===k?(sortDir>0?'asc':'desc'):''}" data-k="${k}" ${extra}>${label}</th>`;
+  let g = `<tr><th style="min-width:74px" class="s" data-k="c">代码</th>
+    <th class="s" data-k="n">名称</th>
+    <th class="s" data-k="ind">板块</th>
+    <th class="s" data-k="k">类数</th>
+    <th class="s" data-k="s">信号数</th>`;
+  if (view === 'cls') {
+    /* 表头只留信号名/类别名，不堆数量统计（数量放 title 悬停里，表头保持干净、列也窄一半）；
+       同时表头一律可点排序 —— cls: 键按「该类命中信号数」排（数字），sig: 键按三态排。 */
+    D.classes.forEach(c => g += `<th class="grpcls s" data-k="cls:${c.key}" style="color:${clsColor[c.key]}"
+        title="${c.label}类（${c.sigs.length} 个信号：${c.sigs.map(k => esc(sigByKey[k].label)).join('、')}）<br>格内 ✓ = 该类至少 1 个信号命中（与共振口径 any-of 一致）；点击表头按该类命中信号数排序">${c.label}类</th>`);
+    g += `<th>命中类别</th></tr>`;
+  } else {
+    D.classes.forEach(c => c.sigs.forEach(k =>
+      g += `<th class="grpcls s" data-k="sig:${k}" title="${esc(sigByKey[k].label)}｜${esc(sigByKey[k].desc)}<br>参数：${esc(JSON.stringify(sigByKey[k].params))}<br>点击表头按命中排序（✓ > — > ✗，数据不足不等于未命中）"
+        style="color:${clsColor[c.key]}">${sigByKey[k].label}</th>`));
+    g += `</tr>`;
+  }
+  document.getElementById('thead').innerHTML = g;
+  document.querySelectorAll('#thead th.s').forEach(th => th.onclick = () => {
+    const k = th.dataset.k;
+    if (sortK === k) sortDir = -sortDir; else { sortK = k; sortDir = -1; }
+    render();
+  });
 }
 
-/* ---- 过滤 + 排序 + 渲染 ---- */
-let sortKey = null;
-const sel = () => [...document.querySelectorAll('#clsFilters input:checked')].map(i => i.value);
+/* ---------- 过滤 / 排序 / 渲染 ----------
+   排序键统一入口：固定列（c/n/ind/k/s）走原字段；cls:xxx = 该类命中信号数（数字）；
+   sig:xxx = 三态打分 ✓=2 > —=1 > ✗=0（数据不足 ≠ 未命中，靠分值把它们分开而不是压平成 0）。 */
+function sortVal(x, key){
+  if (key.startsWith('cls:')) {
+    const c = clsByKey[key.slice(4)];
+    return c ? c.sigs.filter(k => x.st[D.signals.findIndex(s => s.key === k)] === '1').length : null;
+  }
+  if (key.startsWith('sig:')) {
+    const i = D.signals.findIndex(s => s.key === key.slice(4));
+    if (i < 0) return null;
+    return x.st[i] === '1' ? 2 : x.st[i] === '-' ? 1 : 0;
+  }
+  if (key === 'n') return x.n;
+  if (key === 'ind') return x.ind;
+  return x[key];
+}
 function rows(){
-  const q = document.getElementById('q').value.trim();
-  const scope = document.querySelector('input[name=scope]:checked').value;
-  const cls = sel();
+  const st = sel();
   let rs = D.stocks.filter(x =>
-    (scope === 'all' || x.r === 1) &&
-    (!q || x.c.includes(q) || x.n.includes(q)) &&
-    cls.every(c => x.cl.includes(c)));
-  if (sortKey) rs = rs.slice().sort((a,b) => b[sortKey]-a[sortKey] || a.c.localeCompare(b.c));
+    (st.scope === 'all' ? true : st.scope === 'any' ? x.cl.length > 0 : x.r === 1) &&
+    (!st.q || x.c.includes(st.q) || x.n.includes(st.q)) &&
+    (st.scope === 'all' || st.cls.length === 0 ||
+      (st.mode === 'all' ? st.cls.every(c => x.cl.includes(c))
+                         : st.cls.some(c => x.cl.includes(c)))));
+  if (sortK) {
+    const dir = sortDir, key = sortK;
+    rs = rs.slice().sort((a, b) => {
+      const av = sortVal(a, key), bv = sortVal(b, key);
+      if (typeof av === 'number' && typeof bv === 'number') return (av - bv) * dir || a.c.localeCompare(b.c);
+      return String(av).localeCompare(String(bv), 'zh') * dir || a.c.localeCompare(b.c);
+    });
+  }
   return rs;
 }
-function cell(ch, x, key){
+function cellDetail(x, key){
   const s = sigByKey[key];
-  if (ch === '1'){
-    const v = x.v && x.v[key];
-    const t = v ? '：' + Object.entries(v).slice(0,4).map(([k,val]) => `${k}=${val}`).join(' ') : '';
-    return `<td class="up" title="${esc(s.label)}${esc(t)}">✓</td>`;
+  const v = x.v && x.v[key];
+  const t = v ? '：' + Object.entries(v).map(([k, val]) => `${k}=${val}`).join(' ') : '';
+  return `${s.label}${esc(t)}`;
+}
+function rowHTML(x){
+  const code = `<a href="https://stockpage.10jqka.com.cn/${x.c}/" target="_blank">${x.c}</a>`;
+  const name = `<a href="https://xueqiu.com/S/${exch(x.c)}${x.c}" target="_blank">${esc(x.n)}</a>`;
+  const ind  = esc(x.ind);
+  const K = `<td class="k">${x.k}</td><td>${x.s}</td>`;
+  if (view === 'cls'){
+    let m = '';
+    D.classes.forEach(c => {
+      const hits = c.sigs.filter(k => x.st[D.signals.findIndex(s => s.key === k)] === '1');
+      const na   = c.sigs.filter(k => x.st[D.signals.findIndex(s => s.key === k)] === '-');
+      /* 格内只有一个符号，看不出「命中 3/3」还是「命中 1/3」——点表头按命中数排序后
+         读者无从复算排序对不对 ⇒ 把 n/N 写进格子的悬停里（表头保持只有信号名） */
+      const head = hits.length ? `命中 ${hits.length}/${c.sigs.length}：` : '';
+      const ttl  = [head + hits.map(k => cellDetail(x, k)).join('；'),
+                    na.length ? '数据不足：' + na.map(k => sigByKey[k].label).join('、') : ''].filter(Boolean).join(' ｜ ');
+      m += `<td class="${hits.length ? 'up' : na.length ? 'na' : 'no'}" title="${esc(ttl)}">${hits.length ? '✓' : na.length ? '—' : '✗'}</td>`;
+    });
+    const cl = x.cl.length
+      ? x.cl.map(c => `<span class="cap" style="color:${clsColor[c]};border-color:${clsColor[c]}55;background:${clsColor[c]}14">${esc((clsByKey[c]||{}).label||c)}</span>`).join(' ')
+      : '<span class="na">—</span>';
+    return `<tr class="${x.r ? 'res' : ''}"><td class="l">${code}</td><td class="l">${name}</td>
+      <td class="ind">${ind}</td>${K}${m}<td class="capcell">${cl}</td></tr>`;
   }
-  if (ch === '0') return `<td class="no" title="${esc(s.label)}：未命中">✗</td>`;
-  const why = x.rs && x.rs[key] ? '：' + x.rs[key] : '：数据不足（未判定，不计入未命中）';
-  return `<td class="na" title="${esc(s.label)}${esc(why)}">—</td>`;
+  let m = '';
+  D.signals.forEach((s, i) => {
+    const ch = x.st[i];
+    if (ch === '1'){
+      const v = x.v && x.v[s.key];
+      const t = v ? '：' + Object.entries(v).slice(0,4).map(([k, val]) => `${k}=${val}`).join(' ') : '';
+      m += `<td class="up" title="${esc(cellDetail(x, s.key))}">✓</td>`;
+    } else if (ch === '0') m += `<td class="no" title="${esc(s.label)}：未命中">✗</td>`;
+    else {
+      const why = x.rs && x.rs[s.key] ? '：' + x.rs[s.key] : '：数据不足（未判定，不计入未命中）';
+      m += `<td class="na" title="${esc(s.label)}${esc(why)}">—</td>`;
+    }
+  });
+  return `<tr class="${x.r ? 'res' : ''}"><td class="l">${code}</td><td class="l">${name}</td>
+    <td class="ind">${ind}</td>${K}${m}</tr>`;
+}
+/* 布局：表格装得下 ⇒ 拆掉滚动容器，表格随整页滚动（宽屏下更自然，也省掉“盒内滚动”的割裂感）；
+   装不下（窄屏 19 列 > 视口）⇒ 必须保留容器内横拖，否则整页横向溢出、全站跟着横移。 */
+const WRAP = document.getElementById('tblwrap'), TBL = document.getElementById('tbl');
+/* 可用内容宽必须扣掉 .wrap 的左右 padding —— clientWidth 含 padding，
+   会高估可用宽度 ⇒ 临界宽度误拆容器 ⇒ 整页横溢出（实测 1024 档 tblW 1009 / 内容宽 984）。 */
+function availOf(){
+  const box = TBL.parentElement.parentElement, cs = getComputedStyle(box);
+  return box.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+}
+function needW(){
+  /* 必须在容器态（非 flush）下量：flush 时 overflow:visible，表格 width:100%，
+     scrollWidth 会被压成容器宽（实测 820 档内容真宽 993 却报 796）⇒ 判定就永远“装得下”。 */
+  const was = WRAP.classList.contains('flush');
+  if (was) WRAP.classList.remove('flush');
+  const need = TBL.scrollWidth;
+  if (was) WRAP.classList.add('flush');
+  return need;
+}
+function applyFit(){
+  WRAP.classList.toggle('flush', needW() <= availOf() + 2);
 }
 function render(){
   const rs = rows();
+  thead();          /* 视图切换必须重算表头，否则表头停在旧视图 ⇒ 与数据行列数错配 */
   document.getElementById('count').textContent = `显示 ${rs.length} 只`;
-  const tb = document.getElementById('tbody');
-  tb.innerHTML = rs.map(x => {
-    const code = `<a href="https://stockpage.10jqka.com.cn/${x.c}/" target="_blank">${x.c}</a>`;
-    const name = `<a href="https://xueqiu.com/S/${exch(x.c)}${x.c}" target="_blank">${esc(x.n)}</a>`;
-    let m = '';
-    for (let i = 0; i < x.st.length; i++) m += cell(x.st[i], x, D.signals[i].key);
-    const cl = x.cl.length ? x.cl.map(c => `<span style="color:${clsColor[c]}">${esc((D.classes.find(y=>y.key===c)||{}).label||c)}</span>`).join('·') : '<span class="na">—</span>';
-    return `<tr class="${x.r ? 'res' : ''}"><td class="l">${code}</td><td class="l">${name}</td>
-      <td class="ind">${esc(x.ind)}</td><td class="k">${x.k}</td><td>${x.s}</td>${m}<td class="ind">${cl}</td></tr>`;
-  }).join('');
+  document.getElementById('tbody').innerHTML = rs.map(rowHTML).join('');
+  /* 列数自检：表头 ncol() 与数据行实测 cells 数必须相等，否则整表错位。
+     由页面自己报红 —— 这类错位在静态页上不会报错、只会悄悄歪掉。 */
+  const r0 = document.querySelector('#tbody tr');
+  const got = r0 ? r0.cells.length : 0, exp = ncol();
+  const w = document.getElementById('colwarn');
+  w.style.display = (rs.length > 0 && got !== exp) ? 'block' : 'none';
+  w.textContent = (rs.length > 0 && got !== exp)
+    ? `⚠ 列数不一致：表头 ${exp} 列，数据行 ${got} 列 ⇒ 表格已错位，请核对 thead() 与 rowHTML()。`
+    : '';
+  /* 排序键自检：sortK 必须真在当前视图的表头里。切视图/换列后键可能悬空，
+     此时 rows() 排的是一个不存在的列（静默退回按代码排），页面上看不出哪里不对。 */
+  const ks = [...document.querySelectorAll('#thead th')].map(t => t.dataset.k);
+  const sk = !!(sortK && ks.indexOf(sortK) < 0);
+  const sw = document.getElementById('sortwarn');
+  sw.style.display = sk ? 'block' : 'none';
+  sw.textContent = sk
+    ? `⚠ 排序键 ${sortK} 不在当前视图表头里（现有键：${ks.join('、')}）⇒ 排序已退回按代码排列，请点表头重新排序。`
+    : '';
+  /* 布局自检：拆了容器却仍然横滚 ⇒ 说明“装得下”判错了（窄屏必须留容器），整页溢出会滚歪全站。 */
+  applyFit();
+  const over = document.documentElement.scrollWidth - window.innerWidth;
+  const fw = document.getElementById('fitwarn');
+  fw.style.display = (WRAP.classList.contains('flush') && over > 0) ? 'block' : 'none';
+  fw.textContent = (WRAP.classList.contains('flush') && over > 0)
+    ? `⚠ 横向溢出 ${over}px：表格 ${TBL.scrollWidth}px 装不下 ${availOf()}px 却拆了容器（应为横拖容器），请核对 applyFit()。`
+    : '';
 }
-document.getElementById('clsFilters').innerHTML =
-  D.classes.map(c => `<label style="margin-right:8px"><input type="checkbox" value="${c.key}" checked>
-    <span style="color:${clsColor[c.key]}">${c.label}</span></label>`).join('');
-document.querySelectorAll('#clsFilters input').forEach(i => i.onchange = render);
-document.querySelectorAll('input[name=scope]').forEach(i => i.onchange = render);
-document.getElementById('q').oninput = render;
-document.querySelectorAll('button.sort').forEach(b => b.onclick = () => {
-  sortKey = sortKey === b.dataset.k ? null : b.dataset.k; render();
-});
+let fitT = 0;
+window.addEventListener('resize', () => { clearTimeout(fitT); fitT = setTimeout(() => { applyFit(); render(); }, 120); });
 document.getElementById('note').innerHTML =
   `<b>图例</b>：✓ 命中（悬停看明细值）· ✗ 判定未命中 · <i>—</i> 数据不足（bar 不足/停牌/无涨跌幅信息，<b>未判定 ≠ 未命中</b>）。<br>
    <b>口径</b>：${D.signals.map(s => `${s.label}=${esc(s.desc)}`).join('；')}。<br>
-   <b>输入产物</b>（signal/v1 + resonance/v2，见 scan/output/signals/）：`
-   + Object.entries(D.inputs).map(([k,v]) => `${k} <code>${v.file_md5.slice(0,8)}…</code>`).join('、')
-   + `。共振判定：命中类别 ≥ ${D.min_classes} 类；类别分组见上方图例。`;
+   <b>输入产物</b>（signal/v2 + resonance/v4，见 scan/output/signals/）：`
+  + Object.entries(D.inputs).map(([k,v]) => `${k} <code>${v.file_md5.slice(0,8)}…</code>`).join('、')
+  + `。共振判定：命中类别 ≥ ${D.min_classes} 类；类别分组见顶部图例。默认「任一命中」= 不缩小范围，切到「全部命中」才会按所选类别交叉筛选。`;
 
 thead(); render();
 </script>
