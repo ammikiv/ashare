@@ -28,11 +28,11 @@
   },
   "oversold": {
    "name": "超跌低位反弹",
-   "count": 2
+   "count": 9
   },
   "yang": {
    "name": "连续阳线",
-   "count": 99
+   "count": 27
   },
   "panic": {
    "name": "恐慌候选",
