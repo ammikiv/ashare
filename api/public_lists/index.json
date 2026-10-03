@@ -12,15 +12,15 @@
   },
   "lps": {
    "name": "支撑观察",
-   "count": 1
+   "count": 0
   },
   "structready": {
    "name": "早期·待确认",
    "count": 0
   },
   "early": {
-   "name": "早期启动候选",
-   "count": 20
+   "name": "超跌减速观察",
+   "count": 119
   },
   "spring": {
    "name": "Spring 关键支撑位",
@@ -48,11 +48,11 @@
   },
   "dist": {
    "name": "派发风险·成熟在区间",
-   "count": 2
+   "count": 7
   },
   "dist_below": {
    "name": "派发风险·已跌破",
-   "count": 40
+   "count": 147
   },
   "dist_break": {
    "name": "放量破带·早期风险",
