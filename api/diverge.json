@@ -2,251 +2,251 @@
   {
     "code": "300776",
     "name": "帝尔激光",
-    "industry": "高端制造"
+    "industry": "电力设备"
+  },
+  {
+    "code": "300756",
+    "name": "金马游乐",
+    "industry": "机械设备"
+  },
+  {
+    "code": "603681",
+    "name": "永冠新材",
+    "industry": "基础化工"
+  },
+  {
+    "code": "300397",
+    "name": "天和防务",
+    "industry": "国防军工"
   },
   {
     "code": "002639",
     "name": "雪人集团",
-    "industry": "高端制造"
+    "industry": "机械设备"
+  },
+  {
+    "code": "002023",
+    "name": "海特高新",
+    "industry": "国防军工"
+  },
+  {
+    "code": "300101",
+    "name": "振芯科技",
+    "industry": "国防军工"
+  },
+  {
+    "code": "300741",
+    "name": "华宝股份",
+    "industry": "基础化工"
+  },
+  {
+    "code": "688469",
+    "name": "芯联集成",
+    "industry": "电子"
+  },
+  {
+    "code": "301311",
+    "name": "昆船智能",
+    "industry": "机械设备"
+  },
+  {
+    "code": "002647",
+    "name": "仁东控股",
+    "industry": "非银金融"
   },
   {
     "code": "002579",
     "name": "中京电子",
-    "industry": "通信"
+    "industry": "电子"
+  },
+  {
+    "code": "300740",
+    "name": "水羊股份",
+    "industry": "美容护理"
   },
   {
     "code": "600379",
     "name": "宝光股份",
-    "industry": "高端制造"
+    "industry": "电力设备"
+  },
+  {
+    "code": "002520",
+    "name": "日发精机",
+    "industry": "机械设备"
+  },
+  {
+    "code": "301589",
+    "name": "诺瓦星云",
+    "industry": "计算机"
   },
   {
     "code": "301188",
     "name": "力诺药包",
-    "industry": "医药"
+    "industry": "医药生物"
   },
   {
-    "code": "603122",
-    "name": "合富中国",
-    "industry": "医药"
+    "code": "002146",
+    "name": "荣盛发展",
+    "industry": "房地产"
+  },
+  {
+    "code": "000532",
+    "name": "华金资本",
+    "industry": "非银金融"
+  },
+  {
+    "code": "600552",
+    "name": "凯盛科技",
+    "industry": "电子"
+  },
+  {
+    "code": "600699",
+    "name": "均胜电子",
+    "industry": "汽车"
+  },
+  {
+    "code": "301306",
+    "name": "西测测试",
+    "industry": "国防军工"
+  },
+  {
+    "code": "688126",
+    "name": "沪硅产业",
+    "industry": "电子"
   },
   {
     "code": "300136",
     "name": "信维通信",
-    "industry": "通信"
+    "industry": "电子"
+  },
+  {
+    "code": "000676",
+    "name": "智度股份",
+    "industry": "传媒"
+  },
+  {
+    "code": "600609",
+    "name": "金杯汽车",
+    "industry": "汽车"
   },
   {
     "code": "688525",
     "name": "佰维存储",
-    "industry": "半导体"
+    "industry": "电子"
   },
   {
-    "code": "601099",
-    "name": "太平洋",
-    "industry": "金融"
+    "code": "000069",
+    "name": "华侨城Ａ",
+    "industry": "房地产"
+  },
+  {
+    "code": "600545",
+    "name": "卓郎智能",
+    "industry": "机械设备"
+  },
+  {
+    "code": "002026",
+    "name": "山东威达",
+    "industry": "机械设备"
+  },
+  {
+    "code": "688551",
+    "name": "XD科威尔",
+    "industry": "电力设备"
+  },
+  {
+    "code": "002562",
+    "name": "兄弟科技",
+    "industry": "基础化工"
+  },
+  {
+    "code": "002031",
+    "name": "巨轮智能",
+    "industry": "机械设备"
+  },
+  {
+    "code": "688158",
+    "name": "优刻得",
+    "industry": "计算机"
+  },
+  {
+    "code": "002137",
+    "name": "实益达",
+    "industry": "电子"
+  },
+  {
+    "code": "300681",
+    "name": "英搏尔",
+    "industry": "汽车"
+  },
+  {
+    "code": "301363",
+    "name": "美好医疗",
+    "industry": "医药生物"
+  },
+  {
+    "code": "002045",
+    "name": "国光电器",
+    "industry": "电子"
+  },
+  {
+    "code": "300622",
+    "name": "博士眼镜",
+    "industry": "商贸零售"
+  },
+  {
+    "code": "000036",
+    "name": "华联控股",
+    "industry": "房地产"
+  },
+  {
+    "code": "300276",
+    "name": "三丰智能",
+    "industry": "机械设备"
+  },
+  {
+    "code": "300303",
+    "name": "聚飞光电",
+    "industry": "电子"
+  },
+  {
+    "code": "002009",
+    "name": "天奇股份",
+    "industry": "机械设备"
   },
   {
     "code": "301122",
     "name": "采纳股份",
-    "industry": "医药"
+    "industry": "医药生物"
   },
   {
-    "code": "301132",
-    "name": "满坤科技",
-    "industry": "半导体"
+    "code": "000560",
+    "name": "我爱我家",
+    "industry": "房地产"
   },
   {
-    "code": "688621",
-    "name": "阳光诺和",
-    "industry": "创新药"
+    "code": "300192",
+    "name": "科德教育",
+    "industry": "社会服务"
   },
   {
-    "code": "688628",
-    "name": "优利德",
-    "industry": "高端制造"
+    "code": "688512",
+    "name": "慧智微",
+    "industry": "电子"
   },
   {
-    "code": "688200",
-    "name": "华峰测控",
-    "industry": "半导体"
+    "code": "001216",
+    "name": "华瓷股份",
+    "industry": "轻工制造"
   },
   {
-    "code": "300408",
-    "name": "三环集团",
-    "industry": "半导体"
+    "code": "688646",
+    "name": "逸飞激光",
+    "industry": "机械设备"
   },
   {
-    "code": "300151",
-    "name": "昌红科技",
-    "industry": "高端制造"
-  },
-  {
-    "code": "002156",
-    "name": "通富微电",
-    "industry": "半导体"
-  },
-  {
-    "code": "002384",
-    "name": "东山精密",
-    "industry": "通信"
-  },
-  {
-    "code": "600391",
-    "name": "航发科技",
-    "industry": "高端制造"
-  },
-  {
-    "code": "688531",
-    "name": "日联科技",
-    "industry": "高端制造"
-  },
-  {
-    "code": "603082",
-    "name": "北自科技",
-    "industry": "高端制造"
-  },
-  {
-    "code": "688035",
-    "name": "德邦科技",
-    "industry": "半导体"
-  },
-  {
-    "code": "301377",
-    "name": "鼎泰高科",
-    "industry": "高端制造"
-  },
-  {
-    "code": "002988",
-    "name": "豪美新材",
-    "industry": "有色金属"
-  },
-  {
-    "code": "301200",
-    "name": "大族数控",
-    "industry": "高端制造"
-  },
-  {
-    "code": "002297",
-    "name": "博云新材",
-    "industry": "高端制造"
-  },
-  {
-    "code": "002119",
-    "name": "康强电子",
-    "industry": "半导体"
-  },
-  {
-    "code": "603912",
-    "name": "佳力图",
-    "industry": "高端制造"
-  },
-  {
-    "code": "002134",
-    "name": "天津普林",
-    "industry": "通信"
-  },
-  {
-    "code": "301580",
-    "name": "爱迪特",
-    "industry": "医药"
-  },
-  {
-    "code": "688766",
-    "name": "普冉股份",
-    "industry": "半导体"
-  },
-  {
-    "code": "603920",
-    "name": "世运电路",
-    "industry": "通信"
-  },
-  {
-    "code": "300819",
-    "name": "聚杰微纤",
-    "industry": "高端制造"
-  },
-  {
-    "code": "300223",
-    "name": "北京君正",
-    "industry": "半导体"
-  },
-  {
-    "code": "002077",
-    "name": "大港股份",
-    "industry": "半导体"
-  },
-  {
-    "code": "300540",
-    "name": "蜀道装备",
-    "industry": "高端制造"
-  },
-  {
-    "code": "688336",
-    "name": "三生国健",
-    "industry": "创新药"
-  },
-  {
-    "code": "002779",
-    "name": "中坚科技",
-    "industry": "高端制造"
-  },
-  {
-    "code": "600237",
-    "name": "铜峰电子",
-    "industry": "半导体"
-  },
-  {
-    "code": "688385",
-    "name": "复旦微电",
-    "industry": "半导体"
-  },
-  {
-    "code": "603667",
-    "name": "五洲新春",
-    "industry": "高端制造"
-  },
-  {
-    "code": "002196",
-    "name": "方正电机",
-    "industry": "高端制造"
-  },
-  {
-    "code": "300252",
-    "name": "金信诺",
-    "industry": "高端制造"
-  },
-  {
-    "code": "688728",
-    "name": "格科微",
-    "industry": "半导体"
-  },
-  {
-    "code": "002342",
-    "name": "巨力索具",
-    "industry": "高端制造"
-  },
-  {
-    "code": "300782",
-    "name": "卓胜微",
-    "industry": "半导体"
-  },
-  {
-    "code": "002465",
-    "name": "海格通信",
-    "industry": "高端制造"
-  },
-  {
-    "code": "688729",
-    "name": "屹唐股份",
-    "industry": "半导体"
-  },
-  {
-    "code": "300725",
-    "name": "药石科技",
-    "industry": "创新药"
-  },
-  {
-    "code": "300154",
-    "name": "瑞凌股份",
-    "industry": "高端制造"
+    "code": "001368",
+    "name": "通达创智",
+    "industry": "轻工制造"
   }
 ]

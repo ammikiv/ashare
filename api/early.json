@@ -1,102 +1,102 @@
 [
   {
+    "code": "300005",
+    "name": "探路者",
+    "industry": "纺织服饰"
+  },
+  {
+    "code": "688386",
+    "name": "泛亚微透",
+    "industry": "基础化工"
+  },
+  {
+    "code": "600363",
+    "name": "联创光电",
+    "industry": "电子"
+  },
+  {
+    "code": "300873",
+    "name": "海晨股份",
+    "industry": "交通运输"
+  },
+  {
+    "code": "300745",
+    "name": "欣锐科技",
+    "industry": "汽车"
+  },
+  {
     "code": "603698",
     "name": "航天工程",
-    "industry": "高端制造"
+    "industry": "机械设备"
+  },
+  {
+    "code": "002965",
+    "name": "祥鑫科技",
+    "industry": "汽车"
+  },
+  {
+    "code": "603683",
+    "name": "晶华新材",
+    "industry": "基础化工"
+  },
+  {
+    "code": "002993",
+    "name": "奥海科技",
+    "industry": "电子"
   },
   {
     "code": "688717",
     "name": "艾罗能源",
-    "industry": "高端制造"
+    "industry": "电力设备"
   },
   {
     "code": "688411",
     "name": "海博思创",
-    "industry": "高端制造"
+    "industry": "电力设备"
   },
   {
     "code": "002079",
     "name": "苏州固锝",
-    "industry": "高端制造"
+    "industry": "电力设备"
+  },
+  {
+    "code": "002208",
+    "name": "合肥城建",
+    "industry": "房地产"
+  },
+  {
+    "code": "688691",
+    "name": "灿芯股份",
+    "industry": "电子"
   },
   {
     "code": "001309",
     "name": "德明利",
-    "industry": "半导体"
+    "industry": "电子"
   },
   {
-    "code": "002643",
-    "name": "万润股份",
-    "industry": "半导体"
+    "code": "688689",
+    "name": "银河微电",
+    "industry": "电子"
   },
   {
-    "code": "603290",
-    "name": "斯达半导",
-    "industry": "半导体"
+    "code": "688757",
+    "name": "胜科纳米",
+    "industry": "社会服务"
+  },
+  {
+    "code": "688275",
+    "name": "万润新能",
+    "industry": "电力设备"
   },
   {
     "code": "688525",
     "name": "佰维存储",
-    "industry": "半导体"
+    "industry": "电子"
   },
   {
-    "code": "688729",
-    "name": "屹唐股份",
-    "industry": "半导体"
-  },
-  {
-    "code": "300274",
-    "name": "阳光电源",
-    "industry": "高端制造"
-  },
-  {
-    "code": "300065",
-    "name": "海兰信",
-    "industry": "高端制造"
-  },
-  {
-    "code": "600366",
-    "name": "宁波韵升",
-    "industry": "有色金属"
-  },
-  {
-    "code": "000970",
-    "name": "中科三环",
-    "industry": "有色金属"
-  },
-  {
-    "code": "002709",
-    "name": "天赐材料",
-    "industry": "高端制造"
-  },
-  {
-    "code": "688728",
-    "name": "格科微",
-    "industry": "半导体"
-  },
-  {
-    "code": "002931",
-    "name": "锋龙股份",
-    "industry": "高端制造"
-  },
-  {
-    "code": "688233",
-    "name": "神工股份",
-    "industry": "半导体"
-  },
-  {
-    "code": "300432",
-    "name": "富临精工",
-    "industry": "高端制造"
-  },
-  {
-    "code": "603063",
-    "name": "禾望电气",
-    "industry": "高端制造"
-  },
-  {
-    "code": "300953",
-    "name": "震裕科技",
-    "industry": "高端制造"
+    "code": "603906",
+    "name": "龙蟠科技",
+    "industry": "电力设备"
   }
 ]

@@ -1,37 +1,37 @@
 [
   {
-    "code": "688293",
-    "name": "奥浦迈",
-    "industry": "医药"
-  },
-  {
-    "code": "300458",
-    "name": "全志科技",
-    "industry": "半导体"
+    "code": "002242",
+    "name": "九阳股份",
+    "industry": "家用电器"
   },
   {
     "code": "000739",
     "name": "普洛药业",
-    "industry": "创新药"
+    "industry": "医药生物"
   },
   {
-    "code": "300017",
-    "name": "网宿科技",
-    "industry": "通信"
+    "code": "301218",
+    "name": "华是科技",
+    "industry": "计算机"
   },
   {
-    "code": "600036",
-    "name": "招商银行",
-    "industry": "金融"
+    "code": "002303",
+    "name": "美盈森",
+    "industry": "轻工制造"
   },
   {
-    "code": "301047",
-    "name": "义翘神州",
-    "industry": "医药"
+    "code": "600267",
+    "name": "海正药业",
+    "industry": "医药生物"
   },
   {
-    "code": "300613",
-    "name": "富瀚微",
-    "industry": "半导体"
+    "code": "600985",
+    "name": "淮北矿业",
+    "industry": "煤炭"
+  },
+  {
+    "code": "300311",
+    "name": "任子行",
+    "industry": "计算机"
   }
 ]

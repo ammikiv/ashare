@@ -12,11 +12,11 @@
   },
   "lps": {
    "name": "支撑观察",
-   "count": 0
+   "count": 1
   },
   "structready": {
    "name": "早期·待确认",
-   "count": 3
+   "count": 0
   },
   "early": {
    "name": "早期启动候选",
@@ -24,27 +24,27 @@
   },
   "spring": {
    "name": "Spring 关键支撑位",
-   "count": 3
+   "count": 13
   },
   "oversold": {
    "name": "超跌低位反弹",
-   "count": 9
+   "count": 2
   },
   "yang": {
    "name": "连续阳线",
-   "count": 27
+   "count": 99
   },
   "panic": {
    "name": "恐慌候选",
-   "count": 0
+   "count": 3
   },
   "retest": {
    "name": "二次测试候选",
-   "count": 2
+   "count": 7
   },
   "breakout": {
    "name": "突破状态",
-   "count": 29
+   "count": 142
   },
   "dist": {
    "name": "派发风险·成熟在区间",
@@ -60,7 +60,7 @@
   },
   "limitup": {
    "name": "今日涨停",
-   "count": 3
+   "count": 25
   },
   "ascend": {
    "name": "昇腾产业链",
