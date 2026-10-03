@@ -33,6 +33,9 @@ a.nobd{border-bottom:none}
 .wrap{max-width:1240px;margin:0 auto;padding:0 20px 56px}
 h1{font-size:20px;margin:0 0 4px;font-weight:600}
 .sub{color:var(--mut);font-size:13px;margin-bottom:16px}
+.rw{background:#fff7e6;border:1px solid #ffd591;border-radius:10px;padding:9px 12px;
+    font-size:12px;line-height:1.8;margin:4px 0 14px}
+.rw a{color:#ad6800}
 
 /* ---- KPI ---- */
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
@@ -178,12 +181,16 @@ tbody tr.res:hover td{background:#fbe6e3}
     <a href="index.html">报告 ↗</a>
     <a href="list.html">全池 ↗</a>
     <a href="tracker.html">跟踪 ↗</a>
-    <a href="big.html">大盘版 ↗</a>
     <a href="signals.html" class="on">信号共振</a>
   </div>
 </nav>
 <div class="wrap">
   <h1>跨类技术共振看板 <span style="font-weight:400;font-size:15px">· 数据日 2026-09-30</span></h1>
+  <div class="rw">🔬 <b>研究态</b>：共振数的前向证据<b>按期限分层</b>（2024-01~2026-09 现池全历史）——
+  <b>T+20</b>：负（类数越多越差）；<b>T+1</b>（次日收盘口径）：正向且单调，但该正向<b>全部来自</b>
+  含涨停族（涨停/连板/首板）的子集<b>（含族 ≥4 层 +1.89pp t=+19.8；不含族 ≥4 层 −0.33pp t=−6.2）</b>
+  ⇒ "共振数"的有效成分是<b>接力族存在性</b>，不是类数本身。本页不构成投资建议，不进档位/评分。
+  证据与口径：信号前向验证（本地产物 signal_backtest.json/html）。</div>
   <div class="sub" id="sub"></div>
   <div class="kpis" id="kpis"></div>
   <div class="indboard" id="indboard"></div>
@@ -295,7 +302,7 @@ const sel = () => ({
 document.title = '跨类技术共振看板 · ' + D.asof;
 document.getElementById('sub').textContent =
   /* 板块维度必须写在页面上：二级 126 个 vs 一级 31 个，不注明的话读者会以为数据变了 */
-  `池 ${D.pool}${D.pool_tag ? ' ' + D.pool_tag : ''}（有效 ${D.pool_valid} 只）· 板块维度 ${D.ind_dim}（${IND.length} 个，命中 ${D.ind_cover.used}/${D.ind_cover.total} 只）· 共振口径 = 命中类别 ≥ ${D.min_classes}（同族凑数不算共振）· 生成 2026-10-03 21:22`;
+  `池 ${D.pool}${D.pool_tag ? ' ' + D.pool_tag : ''}（有效 ${D.pool_valid} 只）· 板块维度 ${D.ind_dim}（${IND.length} 个，命中 ${D.ind_cover.used}/${D.ind_cover.total} 只）· 共振口径 = 命中类别 ≥ ${D.min_classes}（同族凑数不算共振）· 生成 2026-10-03 22:58`;
 const rate = D.counts.resonance / D.pool_valid * 100;
 document.getElementById('kpis').innerHTML =
   `<div class="kpi hot"><b>${D.counts.resonance}</b><span>共振（≥${D.min_classes} 类）</span>
