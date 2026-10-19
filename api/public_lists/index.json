@@ -1,14 +1,14 @@
 {
- "latest": "20261016",
- "asof": "2026-10-16",
+ "latest": "20261019",
+ "asof": "2026-10-19",
  "cards": {
   "key": {
    "name": "今日核心",
-   "count": 7
+   "count": 0
   },
   "track": {
    "name": "待确认观察",
-   "count": 12
+   "count": 0
   },
   "lps": {
    "name": "支撑观察",
@@ -16,11 +16,11 @@
   },
   "markup": {
    "name": "拉升观察",
-   "count": 9
+   "count": 22
   },
   "acc": {
    "name": "吸筹观察",
-   "count": 14
+   "count": 11
   },
   "spring": {
    "name": "Spring 关键支撑位",
@@ -28,39 +28,39 @@
   },
   "oversold": {
    "name": "超跌低位反弹",
-   "count": 13
+   "count": 12
   },
   "yang": {
    "name": "连续阳线",
-   "count": 35
+   "count": 103
   },
   "panic": {
    "name": "恐慌候选",
-   "count": 0
+   "count": 6
   },
   "retest": {
    "name": "二次测试候选",
-   "count": 1
+   "count": 5
   },
   "breakout": {
    "name": "突破状态",
-   "count": 8
+   "count": 30
   },
   "dist": {
    "name": "派发风险·成熟在区间",
-   "count": 9
+   "count": 0
   },
   "dist_below": {
    "name": "派发风险·已跌破",
-   "count": 237
+   "count": 0
   },
   "dist_break": {
    "name": "放量破带·早期风险",
-   "count": 4
+   "count": 6
   },
   "limitup": {
    "name": "今日涨停",
-   "count": 20
+   "count": 26
   },
   "ascend": {
    "name": "昇腾产业链",
