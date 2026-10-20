@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>次日概率观察 · 20261019</title><style>
+<title>次日概率观察 · 20261020</title><style>
 :root{--chrome:#1F3B57;--panel:#F6F8FA;--card:#fff;--line:#E3E8EE;--ink:#1A2230;
 --dim:#758193;--up:#E8402C;--down:#1FA038;--accent:#1F5FA8}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -35,7 +35,7 @@ summary{cursor:pointer;font-size:12.5px;color:var(--dim)}
 <div class="wrap">
   <div class="card">
     <h2>口径 <span class="tag" style="background:#FDF3E7;color:#B45309">研究态 · 未经校准</span>
-      <span class="tag" style="background:#F2F3F5;color:#758193">数据日 2026-10-19</span>
+      <span class="tag" style="background:#F2F3F5;color:#758193">数据日 2026-10-20</span>
       <span class="tag" style="background:#F2F3F5;color:#758193">模型 jev-1.13.0</span></h2>
     <div class="note">
       ① 命中口径：<b>次日收盘 &gt; 当日收盘</b>（停牌顺延取下一根；开盘/最高/最低/一字/开盘顶死全部记录，供改口径复核）；<br>
@@ -54,8 +54,8 @@ summary{cursor:pointer;font-size:12.5px;color:var(--dim)}
     
     <div class="note">池规则：三源并集（对外页除派发 · phase 三榜非否决保底全入 · 信号共振页）→
       全局键（<b>接力族优先序：涨停&gt;首板&gt;连板&gt;高开</b> → 模型分(noul) → RS → code，
-      20261003 晚二调）截断 ≤100；本次并集 359 只、
-      截断 259 只。
+      20261003 晚二调）截断 ≤100；本次并集 523 只、
+      截断 423 只。
       依据：T+1（本产品标签口径）分块 t —— 涨停 +1.98pp(t=25.7) / 首板 +1.50(t=17.0) /
       高开 +0.97(t=12.4)；连板均值虽最高（+2.86pp, t=18.1）但 n 最小且溢价几乎全在隔夜高开
       （开收 −0.56pp，四族唯一显著为负 ⇒ 次日开盘买入不可捕获）⇒ 按用户指令降权。
@@ -65,8 +65,8 @@ summary{cursor:pointer;font-size:12.5px;color:var(--dim)}
 
   <div class="card">
     <h2>历史校准（T+1 回流）</h2>
-    <div class="kpi"><div class="k"><div class="v num">6</div><div class="l">到期交易日</div></div><div class="k"><div class="v num">600</div><div class="l">累计样本</div></div><div class="k"><div class="v num">0.3733</div><div class="l">池基准命中率</div></div><div class="k"><div class="v num">0.2656 / 0.2507</div><div class="l">Brier 模型 / 常数基准</div></div><div class="k"><div class="v num">14.13</div><div class="l">分辨力pp(三分位, t=0.27)</div></div><div class="k"><div class="v num">0.1787</div><div class="l">ECE 校准误差</div></div></div><div class="body-nopad"><table><thead><tr><th>概率桶</th><th>n</th><th>实际命中率</th><th>校准偏差(pp)</th><th>与池基准差(pp)</th><th class="dim">理想校准参照</th></tr></thead><tbody><tr><td class="num">0.20-0.40</td><td class="num">105</td><td class="num">37.1%</td><td class="num">7.14</td><td class="num">-0.19</td><td class="num dim">30%</td></tr><tr><td class="num">0.40-0.60</td><td class="num">313</td><td class="num">34.2%</td><td class="num">-15.81</td><td class="num">-3.15</td><td class="num dim">50%</td></tr><tr><td class="num">0.60-0.80</td><td class="num">178</td><td class="num">42.1%</td><td class="num">-27.87</td><td class="num">4.8</td><td class="num dim">70%</td></tr><tr><td class="num">0.80-1.00</td><td class="num">4</td><td class="num">75.0%</td><td class="num">-15.01</td><td class="num">37.67</td><td class="num dim">90%</td></tr></tbody></table></div><div class="note">&nbsp;</div><div class="body-nopad"><table><thead><tr><th>日期</th><th>n</th><th>池命中率</th><th>模型均值</th><th>Brier 模型</th><th>Brier 基准</th></tr></thead><tbody><tr><td>2026-09-30</td><td class="num">100</td><td class="num">24.0%</td><td class="num">51.6%</td><td class="num">0.2888</td><td class="num">0.25</td></tr><tr><td>2026-10-08</td><td class="num">100</td><td class="num">47.0%</td><td class="num">54.2%</td><td class="num">0.2505</td><td class="num">0.302</td></tr><tr><td>2026-10-09</td><td class="num">100</td><td class="num">33.0%</td><td class="num">50.3%</td><td class="num">0.2672</td><td class="num">0.2217</td></tr><tr><td>2026-10-12</td><td class="num">100</td><td class="num">50.0%</td><td class="num">53.1%</td><td class="num">0.2533</td><td class="num">0.2735</td></tr><tr><td>2026-10-13</td><td class="num">100</td><td class="num">35.0%</td><td class="num">52.8%</td><td class="num">0.2691</td><td class="num">0.2287</td></tr><tr><td>2026-10-15</td><td class="num">100</td><td class="num">35.0%</td><td class="num">52.9%</td><td class="num">0.2644</td><td class="num">0.2283</td></tr></tbody></table></div>
+    <div class="kpi"><div class="k"><div class="v num">7</div><div class="l">到期交易日</div></div><div class="k"><div class="v num">700</div><div class="l">累计样本</div></div><div class="k"><div class="v num">0.3943</div><div class="l">池基准命中率</div></div><div class="k"><div class="v num">0.267 / 0.2536</div><div class="l">Brier 模型 / 常数基准</div></div><div class="k"><div class="v num">-3.447</div><div class="l">分辨力pp(三分位, t=-0.07)</div></div><div class="k"><div class="v num">0.1706</div><div class="l">ECE 校准误差</div></div></div><div class="body-nopad"><table><thead><tr><th>概率桶</th><th>n</th><th>实际命中率</th><th>校准偏差(pp)</th><th>与池基准差(pp)</th><th class="dim">理想校准参照</th></tr></thead><tbody><tr><td class="num">0.00-0.20</td><td class="num">1</td><td class="num">100.0%</td><td class="num">90.0</td><td class="num">60.57</td><td class="num dim">10%</td></tr><tr><td class="num">0.20-0.40</td><td class="num">127</td><td class="num">40.9%</td><td class="num">10.94</td><td class="num">1.52</td><td class="num dim">30%</td></tr><tr><td class="num">0.40-0.60</td><td class="num">368</td><td class="num">36.7%</td><td class="num">-13.32</td><td class="num">-2.74</td><td class="num dim">50%</td></tr><tr><td class="num">0.60-0.80</td><td class="num">200</td><td class="num">42.5%</td><td class="num">-27.5</td><td class="num">3.07</td><td class="num dim">70%</td></tr><tr><td class="num">0.80-1.00</td><td class="num">4</td><td class="num">75.0%</td><td class="num">-15.01</td><td class="num">35.57</td><td class="num dim">90%</td></tr></tbody></table></div><div class="note">&nbsp;</div><div class="body-nopad"><table><thead><tr><th>日期</th><th>n</th><th>池命中率</th><th>模型均值</th><th>Brier 模型</th><th>Brier 基准</th></tr></thead><tbody><tr><td>2026-09-30</td><td class="num">100</td><td class="num">24.0%</td><td class="num">51.6%</td><td class="num">0.2888</td><td class="num">0.25</td></tr><tr><td>2026-10-08</td><td class="num">100</td><td class="num">47.0%</td><td class="num">54.2%</td><td class="num">0.2505</td><td class="num">0.302</td></tr><tr><td>2026-10-09</td><td class="num">100</td><td class="num">33.0%</td><td class="num">50.3%</td><td class="num">0.2672</td><td class="num">0.2217</td></tr><tr><td>2026-10-12</td><td class="num">100</td><td class="num">50.0%</td><td class="num">53.1%</td><td class="num">0.2533</td><td class="num">0.2735</td></tr><tr><td>2026-10-13</td><td class="num">100</td><td class="num">35.0%</td><td class="num">52.8%</td><td class="num">0.2691</td><td class="num">0.2287</td></tr><tr><td>2026-10-15</td><td class="num">100</td><td class="num">35.0%</td><td class="num">52.9%</td><td class="num">0.2644</td><td class="num">0.2283</td></tr><tr><td>2026-10-16</td><td class="num">100</td><td class="num">52.0%</td><td class="num">48.9%</td><td class="num">0.2758</td><td class="num">0.2711</td></tr></tbody></table></div>
   </div>
-  <div class="note">生成 2026-10-20T00:46:00 · schema nextday_prob/v1 ·
+  <div class="note">生成 2026-10-20T21:30:05 · schema nextday_prob/v1 ·
     研究态：不改档位、不进综合评分、不对外排序。</div>
 </div></body></html>
