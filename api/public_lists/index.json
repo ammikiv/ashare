@@ -4,11 +4,11 @@
  "cards": {
   "key": {
    "name": "今日核心",
-   "count": 0
+   "count": 7
   },
   "track": {
    "name": "待确认观察",
-   "count": 0
+   "count": 12
   },
   "lps": {
    "name": "支撑观察",
@@ -48,11 +48,11 @@
   },
   "dist": {
    "name": "派发风险·成熟在区间",
-   "count": 0
+   "count": 13
   },
   "dist_below": {
    "name": "派发风险·已跌破",
-   "count": 0
+   "count": 239
   },
   "dist_break": {
    "name": "放量破带·早期风险",
