@@ -1,6 +1,6 @@
 {
  "schema": "tracker_review_index/v1",
- "latest": "20261020",
+ "latest": "20261021",
  "snapshots": [
   {
    "tag": "20260923",
@@ -110,6 +110,14 @@
    "tag": "20261020",
    "n": 402,
    "active": 402,
+   "matured": 0,
+   "hit5_rate": null,
+   "avg_ret20": null
+  },
+  {
+   "tag": "20261021",
+   "n": 434,
+   "active": 434,
    "matured": 0,
    "hit5_rate": null,
    "avg_ret20": null
