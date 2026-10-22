@@ -5,33 +5,33 @@
     "industry": "家用电器"
   },
   {
-    "code": "300244",
-    "name": "迪安诊断",
-    "industry": "医药生物"
-  },
-  {
-    "code": "601199",
-    "name": "XD江南水",
-    "industry": "环保"
-  },
-  {
     "code": "688213",
     "name": "思特威-W",
     "industry": "电子"
   },
   {
-    "code": "300006",
-    "name": "莱美药业",
+    "code": "300832",
+    "name": "新产业",
     "industry": "医药生物"
   },
   {
-    "code": "688575",
-    "name": "亚辉龙",
-    "industry": "医药生物"
+    "code": "601199",
+    "name": "江南水务",
+    "industry": "环保"
   },
   {
-    "code": "600770",
-    "name": "综艺股份",
-    "industry": "综合"
+    "code": "688002",
+    "name": "睿创微纳",
+    "industry": "电子"
+  },
+  {
+    "code": "601886",
+    "name": "江河集团",
+    "industry": "建筑装饰"
+  },
+  {
+    "code": "603068",
+    "name": "博通集成",
+    "industry": "电子"
   }
 ]

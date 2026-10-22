@@ -5,49 +5,9 @@
     "industry": "家用电器"
   },
   {
-    "code": "002929",
-    "name": "润建股份",
-    "industry": "通信"
-  },
-  {
-    "code": "002242",
-    "name": "九阳股份",
-    "industry": "家用电器"
-  },
-  {
-    "code": "603636",
-    "name": "南威软件",
-    "industry": "计算机"
-  },
-  {
     "code": "600293",
     "name": "三峡新材",
     "industry": "建筑材料"
-  },
-  {
-    "code": "603236",
-    "name": "移远通信",
-    "industry": "通信"
-  },
-  {
-    "code": "002181",
-    "name": "粤传媒",
-    "industry": "传媒"
-  },
-  {
-    "code": "300006",
-    "name": "莱美药业",
-    "industry": "医药生物"
-  },
-  {
-    "code": "002811",
-    "name": "郑中设计",
-    "industry": "建筑装饰"
-  },
-  {
-    "code": "600252",
-    "name": "中恒集团",
-    "industry": "医药生物"
   },
   {
     "code": "603330",
@@ -55,58 +15,38 @@
     "industry": "基础化工"
   },
   {
-    "code": "002639",
-    "name": "雪人集团",
-    "industry": "机械设备"
-  },
-  {
-    "code": "002368",
-    "name": "太极股份",
-    "industry": "计算机"
-  },
-  {
-    "code": "001201",
-    "name": "东瑞股份",
-    "industry": "农林牧渔"
-  },
-  {
-    "code": "300296",
-    "name": "利亚德",
-    "industry": "电子"
-  },
-  {
     "code": "603138",
     "name": "海量数据",
     "industry": "计算机"
   },
   {
-    "code": "601566",
-    "name": "九牧王",
-    "industry": "纺织服饰"
+    "code": "600698",
+    "name": "湖南天雁",
+    "industry": "汽车"
   },
   {
-    "code": "002112",
-    "name": "三变科技",
+    "code": "603728",
+    "name": "鸣志电器",
     "industry": "电力设备"
   },
   {
-    "code": "002565",
-    "name": "顺灏股份",
-    "industry": "轻工制造"
+    "code": "002249",
+    "name": "大洋电机",
+    "industry": "电力设备"
   },
   {
-    "code": "001216",
-    "name": "华瓷股份",
-    "industry": "轻工制造"
+    "code": "000678",
+    "name": "襄阳轴承",
+    "industry": "汽车"
   },
   {
-    "code": "002792",
-    "name": "通宇通讯",
-    "industry": "通信"
+    "code": "002097",
+    "name": "山河智能",
+    "industry": "机械设备"
   },
   {
-    "code": "603629",
-    "name": "利通电子",
-    "industry": "电子"
+    "code": "003021",
+    "name": "兆威机电",
+    "industry": "电力设备"
   }
 ]
