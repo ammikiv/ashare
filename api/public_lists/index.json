@@ -1,6 +1,6 @@
 {
- "latest": "20261109",
- "asof": "2026-11-09",
+ "latest": "20261110",
+ "asof": "2026-11-10",
  "cards": {
   "key": {
    "name": "今日核心",
@@ -16,7 +16,7 @@
   },
   "markup": {
    "name": "拉升观察",
-   "count": 25
+   "count": 42
   },
   "acc": {
    "name": "吸筹观察",
@@ -32,7 +32,7 @@
   },
   "yang": {
    "name": "连续阳线",
-   "count": 414
+   "count": 221
   },
   "panic": {
    "name": "恐慌候选",
@@ -44,7 +44,7 @@
   },
   "breakout": {
    "name": "突破状态",
-   "count": 34
+   "count": 58
   },
   "dist": {
    "name": "派发风险·成熟在区间",
@@ -60,7 +60,7 @@
   },
   "limitup": {
    "name": "今日涨停",
-   "count": 27
+   "count": 37
   },
   "ascend": {
    "name": "昇腾产业链",
