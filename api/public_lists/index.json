@@ -1,6 +1,6 @@
 {
- "latest": "20261113",
- "asof": "2026-11-13",
+ "latest": "20261116",
+ "asof": "2026-11-16",
  "cards": {
   "key": {
    "name": "今日核心",
@@ -20,11 +20,11 @@
   },
   "acc": {
    "name": "吸筹观察",
-   "count": 15
+   "count": 14
   },
   "spring": {
    "name": "Spring 关键支撑位",
-   "count": 5
+   "count": 9
   },
   "oversold": {
    "name": "超跌低位反弹",
@@ -32,7 +32,7 @@
   },
   "yang": {
    "name": "连续阳线",
-   "count": 37
+   "count": 38
   },
   "panic": {
    "name": "恐慌候选",
@@ -40,11 +40,11 @@
   },
   "retest": {
    "name": "二次测试候选",
-   "count": 2
+   "count": 7
   },
   "breakout": {
    "name": "突破状态",
-   "count": 28
+   "count": 24
   },
   "dist": {
    "name": "派发风险·成熟在区间",
@@ -60,7 +60,7 @@
   },
   "limitup": {
    "name": "今日涨停",
-   "count": 16
+   "count": 6
   },
   "ascend": {
    "name": "昇腾产业链",
