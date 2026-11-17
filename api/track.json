@@ -10,19 +10,24 @@
     "industry": "国防军工"
   },
   {
-    "code": "603233",
-    "name": "大参林",
-    "industry": "医药生物"
+    "code": "600258",
+    "name": "首旅酒店",
+    "industry": "社会服务"
   },
   {
-    "code": "301210",
-    "name": "金杨精密",
-    "industry": "电力设备"
+    "code": "600754",
+    "name": "锦江酒店",
+    "industry": "社会服务"
   },
   {
     "code": "000902",
     "name": "新洋丰",
     "industry": "基础化工"
+  },
+  {
+    "code": "600316",
+    "name": "洪都航空",
+    "industry": "国防军工"
   },
   {
     "code": "002714",
@@ -35,14 +40,9 @@
     "industry": "电力设备"
   },
   {
-    "code": "601083",
-    "name": "锦江航运",
-    "industry": "交通运输"
-  },
-  {
-    "code": "605288",
-    "name": "凯迪股份",
-    "industry": "机械设备"
+    "code": "603766",
+    "name": "XD隆鑫通",
+    "industry": "汽车"
   },
   {
     "code": "000400",
@@ -50,13 +50,13 @@
     "industry": "电力设备"
   },
   {
-    "code": "002100",
-    "name": "天康生物",
-    "industry": "农林牧渔"
+    "code": "300133",
+    "name": "华策影视",
+    "industry": "传媒"
   },
   {
-    "code": "603636",
-    "name": "南威软件",
-    "industry": "计算机"
+    "code": "301262",
+    "name": "海看股份",
+    "industry": "传媒"
   }
 ]
