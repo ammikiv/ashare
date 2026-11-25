@@ -1,43 +1,38 @@
 [
   {
-    "code": "002913",
-    "name": "奥士康",
-    "industry": "电子"
+    "code": "300788",
+    "name": "中信出版",
+    "industry": "传媒"
   },
   {
-    "code": "600371",
-    "name": "万向德农",
-    "industry": "农林牧渔"
+    "code": "600295",
+    "name": "鄂尔多斯",
+    "industry": "钢铁"
   },
   {
-    "code": "600100",
-    "name": "同方股份",
-    "industry": "计算机"
-  },
-  {
-    "code": "603580",
-    "name": "艾艾精工",
-    "industry": "基础化工"
-  },
-  {
-    "code": "603233",
-    "name": "大参林",
+    "code": "000756",
+    "name": "新华制药",
     "industry": "医药生物"
   },
   {
-    "code": "000678",
-    "name": "襄阳轴承",
-    "industry": "汽车"
+    "code": "002418",
+    "name": "康盛股份",
+    "industry": "家用电器"
   },
   {
-    "code": "000519",
-    "name": "中兵红箭",
+    "code": "002315",
+    "name": "焦点科技",
+    "industry": "商贸零售"
+  },
+  {
+    "code": "600760",
+    "name": "中航沈飞",
     "industry": "国防军工"
   },
   {
-    "code": "603327",
-    "name": "福蓉科技",
-    "industry": "电子"
+    "code": "601918",
+    "name": "新集能源",
+    "industry": "煤炭"
   },
   {
     "code": "002597",
@@ -45,18 +40,23 @@
     "industry": "基础化工"
   },
   {
-    "code": "300059",
-    "name": "东方财富",
-    "industry": "非银金融"
+    "code": "002422",
+    "name": "科伦药业",
+    "industry": "医药生物"
   },
   {
-    "code": "600233",
-    "name": "圆通速递",
-    "industry": "交通运输"
+    "code": "301529",
+    "name": "福赛科技",
+    "industry": "汽车"
   },
   {
-    "code": "002315",
-    "name": "焦点科技",
-    "industry": "商贸零售"
+    "code": "603345",
+    "name": "安井食品",
+    "industry": "食品饮料"
+  },
+  {
+    "code": "688605",
+    "name": "先锋精科",
+    "industry": "电子"
   }
 ]
